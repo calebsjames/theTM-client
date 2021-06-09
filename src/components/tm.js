@@ -8,7 +8,7 @@ import { Register } from "./auth/Register"
 export const TM = () => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("tm_user_id")) {
+            if (localStorage.getItem("tm_token")) {
                 return <>
                     {/* <NavBar /> */}
                     <ApplicationViews />
@@ -19,7 +19,7 @@ export const TM = () => (
         }} />
 
         <Route path="/login" render={() => {
-            if (localStorage.getItem("tm_user_id")) {
+            if (localStorage.getItem("tm_token")) {
                 return <Redirect to="/" />
             } else {
                 return <Login />
@@ -27,7 +27,7 @@ export const TM = () => (
         }} />
 
         <Route path="/register" render={() => {
-            if (localStorage.getItem("tm_user_id")) {
+            if (localStorage.getItem("tm_token")) {
                 return <Redirect to="/" />
             } else {
                 return <Register />
