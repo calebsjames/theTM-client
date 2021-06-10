@@ -16,7 +16,9 @@ export const VenueForm = () => {
     const [venue, setVenue] = useState({
         address: "",
         capacity: 0,
+        cell_phone: "",
         city: "",
+        contact: "",
         email: "",
         hall_fee: 0,
         phone: "",
@@ -162,9 +164,9 @@ export const VenueForm = () => {
                     </fieldset>
                     <fieldset className="form">
                         <div className="form-group">
-                            <label htmlFor="Cell">Cell: </label>
-                            <input type="text" id="Cell" className="form-control"
-                            placeholder="Cell" value={venue.Cell}
+                            <label htmlFor="cell_phone">Cell: </label>
+                            <input type="text" id="cell_phone" className="form-control"
+                            placeholder="Cell" value={venue.cell_phone}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -216,7 +218,7 @@ export const VenueForm = () => {
                         </div>
                     </fieldset>
                 </div>
-                
+
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="email">E-mail: </label>
