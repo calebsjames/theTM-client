@@ -72,7 +72,6 @@ export const ShowForm = () => {
        //if in the edit page, editShow() then navigate to shows 
        if (showId) {
         editShow(show)
-        editVenue(venue)
         .then(history.goBack)
         
         } else {
