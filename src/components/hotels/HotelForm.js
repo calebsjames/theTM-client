@@ -2,24 +2,18 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { HotelContext } from "../hotels/HotelProvider";
+import { ShowContext } from "../shows/ShowProvider";
 
 
 //export function to display form for new hotel
 export const HotelForm = () => {
     
-    const { addHotel, getHotelById, editHotel, getHotels } = useContext(HotelContext)
+    const { addHotel, getHotelById, editHotel, getHotels, hotel, setHotel } = useContext(HotelContext)
+    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
     
-    //Define the intial state of the Hotel with useState()
-    const [hotel, setHotel] = useState({
-        address: "",
-        confirmation: "", 
-        name: "",
-        notes: "",
-        phone: ""
-    });
 
 
 
@@ -44,26 +38,21 @@ export const HotelForm = () => {
     
 
 
-    // useEffect(() => {
-    //     //get all Hotels
-    //     getHotels().then(() => {
+    useEffect(() => {
+        //get all Shows
+        getShows().then(() => {
 
-    //     // if showID exists
-    //     if (showId) {
-    //         //get that hotel
-    //         getHotelById(hotelId)
-    //         //then setHotel to that found Hotel
-    //         .then(Hotel => {
-    //             setHotel(Hotel)
+            //get that show
+            getShowById(showId)
+            //then setShow to that found Show
+            .then(Show => {
+                setHotel(Show.hotel)
                 
-    //             setIsLoading(false)
-    //         })
-    //     } else {
-    //         // else there is no data
-    //         setIsLoading(false)
-    //     }
-    //     })
-    // }, [])
+                
+                setIsLoading(false)
+            })
+        })
+    }, [])
 
 
     //Return this HTML

@@ -7,6 +7,23 @@ export const VenueContext = createContext()
 export const VenueProvider = (props) => {
     const [venues, setVenues] = useState([])
 
+    const [venue, setVenue] = useState({
+        address: "",
+        capacity: 0,
+        cell_phone: "",
+        city: "",
+        contact: "",
+        email: "",
+        hall_fee: 0,
+        phone: "",
+        website: "",
+        merch_sales: "",
+        merch_fee: "",     
+        name: "",
+        state: "",
+        zip: ""
+    });
+
     const getVenues = () => {
         return fetch("http://localhost:8000/venues", {
             headers: {
@@ -72,7 +89,7 @@ export const VenueProvider = (props) => {
     */
     return (
         <VenueContext.Provider value={{
-            venues, getVenues, addVenue, getVenueById, deleteVenue, updateVenue, searchTerms, setSearchTerms
+            venues, getVenues, addVenue, getVenueById, deleteVenue, updateVenue, searchTerms, setSearchTerms, venue, setVenue
         }}>
             {props.children}
         </VenueContext.Provider>

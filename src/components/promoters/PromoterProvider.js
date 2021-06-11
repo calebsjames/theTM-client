@@ -7,6 +7,20 @@ export const PromoterContext = createContext()
 export const PromoterProvider = (props) => {
     const [promoters, setPromoters] = useState([])
 
+    //Define the intial state of the Promoter with useState()
+    const [promoter, setPromoter] = useState({
+        address: "",
+        cell_phone: "",
+        city: "",
+        company: "",
+        email: "", 
+        name: "",
+        notes: "",
+        phone: "",
+        state: "",
+        zip: ""
+    });
+
     const getPromoters = () => {
         return fetch("http://localhost:8000/promoters", {
             headers: {
@@ -72,7 +86,7 @@ export const PromoterProvider = (props) => {
     */
     return (
         <PromoterContext.Provider value={{
-            promoters, getPromoters, addPromoter, getPromoterById, deletePromoter, updatePromoter, searchTerms, setSearchTerms
+            promoters, getPromoters, addPromoter, getPromoterById, deletePromoter, updatePromoter, searchTerms, setSearchTerms, promoter, setPromoter
         }}>
             {props.children}
         </PromoterContext.Provider>

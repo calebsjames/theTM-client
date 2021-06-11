@@ -2,32 +2,18 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { PromoterContext } from "../promoters/PromoterProvider";
+import { ShowContext } from "../shows/ShowProvider";
 
 
 //export function to display form for new promoter
 export const PromoterForm = () => {
     
-    const { addPromoter, getPromoterById, editPromoter, getPromoters } = useContext(PromoterContext)
+    const { addPromoter, getPromoterById, updatePromoter, getPromoters, promoter, setPromoter } = useContext(PromoterContext)
+    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
     
-    //Define the intial state of the Promoter with useState()
-    const [promoter, setPromoter] = useState({
-        address: "",
-        cell_phone: "",
-        city: "",
-        company: "",
-        email: "", 
-        name: "",
-        notes: "",
-        phone: "",
-        state: "",
-        zip: ""
-    });
-
-
-
 
     //when something changes, save it with setPromoter
     const handleControlledInputChange = (event) => {
@@ -48,26 +34,21 @@ export const PromoterForm = () => {
 
 
 
-    // useEffect(() => {
-    //     //get all Promoters
-    //     getPromoters().then(() => {
+    useEffect(() => {
+        //get all Shows
+        getShows().then(() => {
 
-    //     // if showID exists
-    //     if (showId) {
-    //         //get that promoter
-    //         getPromoterById(promoterId)
-    //         //then setPromoter to that found Promoter
-    //         .then(Promoter => {
-    //             setPromoter(Promoter)
+            //get that show
+            getShowById(showId)
+            //then setShow to that found Show
+            .then(Show => {
+                setPromoter(Show.promoter)
                 
-    //             setIsLoading(false)
-    //         })
-    //     } else {
-    //         // else there is no data
-    //         setIsLoading(false)
-    //     }
-    //     })
-    // }, [])
+                
+                setIsLoading(false)
+            })
+        })
+    }, [])
 
 
     //Return this HTML

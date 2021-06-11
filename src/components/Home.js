@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router"
 import { ContactNoteContext } from "./contactNotes/ContactProvider"
 import { HotelForm } from "./hotels/HotelForm"
@@ -17,15 +17,18 @@ import { VenueContext } from "./venues/VenueProvider"
 
 
 export const Home = () => {
-    const { getShows, shows, searchTerms } = useContext(ShowContext)
+    const { getShows, shows, searchTerms, show, updateShow, addShow } = useContext(ShowContext)
     // const { getUsers, users } = useContext(UserContext)
-    const { getVenues, venues } = useContext(VenueContext)
-    const { getPromoters, promoters } = useContext(PromoterContext)
-    const { getHotels, hotels } = useContext(HotelContext)
+    const { getVenues, venue, updateVenue } = useContext(VenueContext)
+    const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
+    const { getHotels, hotels, updateHotel, hotel } = useContext(HotelContext)
     const { getContactNotes, contactNote } = useContext(ContactNoteContext)
     const { getSchedules, schedule } = useContext(ScheduleContext)
+    const [ isLoading, setIsLoading ] = useState(true);
+
     const history = useHistory()
     const showId = useParams()
+    
     
     
 
@@ -46,17 +49,69 @@ export const Home = () => {
     }, [])
    
 
-    // //Get data related to showId and load it into the form
-    // useEffect(() => {
-    //     getShows().then(() => {        
-    //         getShowById(showId)
-    //         .then(Show => {
-    //             setShow(Show)
-    //             setIsLoading(false)
-    //         })
+    const handleClickSaveForm = (event) => {
+        //Prevents the browser from submitting the form
+         event.preventDefault() 
+        updateVenue(venue)
+        updatePromoter(promoter)
+        updateShow(show)
+        updateHotel(hotel)
+        console.log(show.id)
         
-    //     })
-    // }, [])
+    }
+
+    const handleNewShow = () => {
+        const newShow = {
+            id: 0,
+            advanced: false,
+            ages: "",
+            artist: "",
+            billing: "",
+            bus_call: "00:00",
+            comments: "",
+            contracted: false,
+            contract_signed: false,
+            curfew: "00:00",
+            date: "1950-01-01",
+            date_on_artist_site: false,
+            date_on_calendar: false,
+            date_on_socials: false,
+            date_on_venue_site: false,
+            deposit: 0,
+            deposit_paid: false,
+            door_price: 0,
+            door_time: "00:00",
+            drive_time: "",
+            gross_income: 0,
+            guarantee: 0,
+            guest_list: "",
+            guest_list_sent: false,
+            load_in: "00:00",
+            miles_to_drive: 0,
+            public_private: "",
+            promo_materials_sent: false,
+            routing: "",
+            routing_notes: "",
+            runner: false,     
+            show_length: "",
+            show_time: "00:00",
+            sound_check: "00:00",
+            support: "",
+            status: "",
+            terms: "",
+            ticket_sales: 0,
+            weather: "",
+            hotelId: null,
+            promoterId: null,
+            venueId: null,
+            user_id: 1
+        };
+        addShow(newShow)
+        .then(showid => {
+            history.push(`/show/${showid}`)
+
+        }) 
+    }
 
 
       return (
@@ -72,6 +127,17 @@ export const Home = () => {
                 <HotelForm />
                 <RoutingForm />
             </div>
+
+            <button className="btn btn-primary"
+            // disabled={isLoading}
+            onClick={handleClickSaveForm}>
+            Save</button>
+            
+            
+            <button className="btn btn-primary"
+            // disabled={isLoading}
+            onClick={handleNewShow}>
+            New Show</button>
             
         </>
     )

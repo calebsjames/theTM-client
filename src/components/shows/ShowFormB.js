@@ -7,24 +7,12 @@ import "../App.css"
 //export function to display form for new show
 export const ShowFormB = () => {
     
-    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
+    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
     
-    //Define the intial state of the Show with useState()
-    const [show, setShow] = useState({
-        advanced: false,
-        support: "",
-        notes: "",
-        date_on_artist_site: false,
-        date_on_calendar: false,
-        date_on_socials: false,
-        date_on_venue_site: false,
-        contracted: false,
-        contract_signed: false,
-        promo_materials_sent: false
-    });
+    
 
 
 
