@@ -7,19 +7,12 @@ import "../App.css"
 //export function to display form for new show
 export const RoutingForm = () => {
     
-    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
+    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
     
-    //Define the intial state of the Show with useState()
-    const [show, setShow] = useState({
-        routing: "",
-        miles_to_drive: "",
-        drive_time: "",
-        bus_call: "",
-        notes: ""
-    });
+    
 
 
 

@@ -9,29 +9,11 @@ import "./Show.css"
 //export function to display form for new show
 export const ShowFormA = () => {
     
-    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
+    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
     
-    //Define the intial state of the Show with useState()
-    const [show, setShow] = useState({
-        ages: "",
-        billing: "",
-        deposit: "",
-        deposit_paid: false,
-        doors: "",
-        door_price: "",
-        load_in: "",
-        public_private: "",
-        runner: false,     
-        set_length: "",
-        show_time: "",
-        sound_check: "",
-        terms: "",
-        weather: ""
-    });
-
 
 
 
