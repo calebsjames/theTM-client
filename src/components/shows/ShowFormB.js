@@ -2,10 +2,10 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { ShowContext } from "../shows/ShowProvider";
-
+import "../App.css"
 
 //export function to display form for new show
-export const ShowForm = () => {
+export const ShowFormB = () => {
     
     const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
     const { showId } = useParams()
@@ -60,32 +60,13 @@ export const ShowForm = () => {
     }
 
 
-    //handle save function
-    const handleClickSaveShow = (event) => {
-        //Prevents the browser from submitting the form
-        event.preventDefault() 
-        
-       //if in the edit page, editShow() then navigate to shows 
-       if (showId) {
-        editShow(show)
-        editVenue(venue)
-        .then(history.goBack)
-        
-        } else {
-       
-        //create a new Show then move to newMainParachute()
-        addShow(show)
-        .then(() => history.push("/newmainparachute"))
-      
-    }}
+ 
 
 
     useEffect(() => {
         //get all Shows
         getShows().then(() => {
 
-        // if showID exists
-        if (showId) {
             //get that show
             getShowById(showId)
             //then setShow to that found Show
@@ -94,10 +75,6 @@ export const ShowForm = () => {
                 
                 setIsLoading(false)
             })
-        } else {
-            // else there is no data
-            setIsLoading(false)
-        }
         })
     }, [])
 
@@ -110,7 +87,7 @@ export const ShowForm = () => {
             <fieldset className="form">
                 <div className="form-group">
                     <label htmlFor="support">Support: </label>
-                    <input type="text" id="support" className="form-control"
+                    <input type="text" id="support" className="form-field"
                     autoFocus placeholder="Support" value={show.support}
                     onChange={handleControlledInputChange}/>
                 </div>
@@ -121,7 +98,7 @@ export const ShowForm = () => {
                 <fieldset className="form">
                     <div className="form-group">    
                         <textarea cols="50" rows="10" 
-                        id="notes" className="form-control"
+                        id="notes" className="form-field"
                         value={show.notes} placeholder="Notes"
                         onChange={handleControlledInputChange}/>
                     </div>
@@ -131,7 +108,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="contracted">Contracted</label>
-                            <input type="checkbox" id="contracted" className="form-control"
+                            <input type="checkbox" id="contracted" className="form-field"
                             name="contracted" checked={show.contracted} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -139,7 +116,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="contract_signed">Contract Signed</label>
-                            <input type="checkbox" id="contract_signed" className="form-control"
+                            <input type="checkbox" id="contract_signed" className="form-field"
                             name="contract_signed" checked={show.contract_signed} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -147,7 +124,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="date_on_calendar">On Calendar</label>
-                            <input type="checkbox" id="date_on_calendar" className="form-control"
+                            <input type="checkbox" id="date_on_calendar" className="form-field"
                             name="date_on_calendar" checked={show.date_on_calendar} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -155,7 +132,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="date_on_artist_site">On Artist Site</label>
-                            <input type="checkbox" id="date_on_artist_site" className="form-control"
+                            <input type="checkbox" id="date_on_artist_site" className="form-field"
                             name="date_on_artist_site" checked={show.date_on_artist_site} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -163,7 +140,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="date_on_venue_site">On Venue Site</label>
-                            <input type="checkbox" id="date_on_venue_site" className="form-control"
+                            <input type="checkbox" id="date_on_venue_site" className="form-field"
                             name="date_on_venue_site" checked={show.date_on_venue_site} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -171,7 +148,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="date_on_socials">On Socials</label>
-                            <input type="checkbox" id="date_on_socials" className="form-control"
+                            <input type="checkbox" id="date_on_socials" className="form-field"
                             name="date_on_socials" checked={show.date_on_socials} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -179,7 +156,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="promo_materials_sent">Promo Materials</label>
-                            <input type="checkbox" id="promo_materials_sent" className="form-control"
+                            <input type="checkbox" id="promo_materials_sent" className="form-field"
                             name="promo_materials_sent" checked={show.promo_materials_sent} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -187,7 +164,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="advanced">Advanced</label>
-                            <input type="checkbox" id="advanced" className="form-control"
+                            <input type="checkbox" id="advanced" className="form-field"
                             name="advanced" checked={show.advanced} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -196,11 +173,7 @@ export const ShowForm = () => {
             </div>
             
             
-            <button className="btn btn-primary"
-                disabled={isLoading}
-                onClick={handleClickSaveShow}>
-                Save Show
-            </button>
+            
         </form>
         </article>
         </>

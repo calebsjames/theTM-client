@@ -22,7 +22,7 @@ export const HotelProvider = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             },
             body: JSON.stringify(hotelObj)
         })
@@ -33,7 +33,7 @@ export const HotelProvider = (props) => {
     const getHotelById = (id) => {
         return fetch(`http://localhost:8000/hotels/${id}`, {
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ export const HotelProvider = (props) => {
         return fetch(`http://localhost:8000/hotels/${hotelId}`, {
             method: "DELETE",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(getHotels)
@@ -55,7 +55,7 @@ export const HotelProvider = (props) => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+            "Authorization": `Token ${localStorage.getItem("tm_token")}`
           },
           body: JSON.stringify(hotel)
         })

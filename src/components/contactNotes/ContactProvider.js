@@ -22,7 +22,7 @@ export const ContactNoteProvider = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             },
             body: JSON.stringify(contactNoteObj)
         })
@@ -33,7 +33,7 @@ export const ContactNoteProvider = (props) => {
     const getContactNoteById = (id) => {
         return fetch(`http://localhost:8000/contactNotes/${id}`, {
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ export const ContactNoteProvider = (props) => {
         return fetch(`http://localhost:8000/contactNotes/${contactNoteId}`, {
             method: "DELETE",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(getContactNotes)
@@ -55,7 +55,7 @@ export const ContactNoteProvider = (props) => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+            "Authorization": `Token ${localStorage.getItem("tm_token")}`
           },
           body: JSON.stringify(contactNote)
         })

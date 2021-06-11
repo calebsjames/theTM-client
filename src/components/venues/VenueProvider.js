@@ -22,7 +22,7 @@ export const VenueProvider = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             },
             body: JSON.stringify(venueObj)
         })
@@ -33,7 +33,7 @@ export const VenueProvider = (props) => {
     const getVenueById = (id) => {
         return fetch(`http://localhost:8000/venues/${id}`, {
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ export const VenueProvider = (props) => {
         return fetch(`http://localhost:8000/venues/${venueId}`, {
             method: "DELETE",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(getVenues)
@@ -55,7 +55,7 @@ export const VenueProvider = (props) => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+            "Authorization": `Token ${localStorage.getItem("tm_token")}`
           },
           body: JSON.stringify(venue)
         })

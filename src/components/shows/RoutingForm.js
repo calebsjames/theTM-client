@@ -2,10 +2,10 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { ShowContext } from "./ShowProvider";
-
+import "../App.css"
 
 //export function to display form for new show
-export const ShowForm = () => {
+export const RoutingForm = () => {
     
     const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
     const { showId } = useParams()
@@ -42,31 +42,12 @@ export const ShowForm = () => {
     
 
 
-    //handle save function
-    const handleClickSaveShow = (event) => {
-        //Prevents the browser from submitting the form
-        event.preventDefault() 
-        
-       //if in the edit page, editShow() then navigate to shows 
-       if (showId) {
-        editShow(show)
-        .then(history.goBack)
-        
-        } else {
-       
-        //create a new Show then move to newMainParachute()
-        addShow(show)
-        .then(() => history.push("/newmainparachute"))
-      
-    }}
 
 
     useEffect(() => {
         //get all Shows
         getShows().then(() => {
 
-        // if showID exists
-        if (showId) {
             //get that show
             getShowById(showId)
             //then setShow to that found Show
@@ -75,10 +56,6 @@ export const ShowForm = () => {
                 
                 setIsLoading(false)
             })
-        } else {
-            // else there is no data
-            setIsLoading(false)
-        }
         })
     }, [])
 
@@ -95,7 +72,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="routing">Routing: </label>
-                            <input type="text" id="routing" className="form-control"
+                            <input type="text" id="routing" className="form-field"
                             autoFocus placeholder="Routing" value={show.routing}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -106,57 +83,17 @@ export const ShowForm = () => {
                             <fieldset className="form">
                                 <div className="form-group">
                                     <label htmlFor="miles_to_drive">Miles: </label>
-                                    <input type="text" id="miles_to_drive" className="form-control"
+                                    <input type="text" id="miles_to_drive" className="form-field"
                                     placeholder="Miles" value={show.miles_to_drive}
                                     onChange={handleControlledInputChange}/>
                                 </div>
                             </fieldset>
-                            
-                            <div className="column">
-                                <fieldset className="form">
-                                    <div className="form-group">
-                                        <label htmlFor="sound_check">Sound Check</label>
-                                        <input type="text" id="sound_check" className="form-control"
-                                        placeholder="Sound Check" value={show.sound_check}
-                                        onChange={handleControlledInputChange}/>
-                                    </div>
-                                </fieldset>
-                                <fieldset className="form">
-                                    <div className="form-group">
-                                        <label htmlFor="doors">Doors: </label>
-                                        <input type="text" id="doors" className="form-control" 
-                                        placeholder="Doors" value={show.doors}
-                                        onChange={handleControlledInputChange}/>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </div>
-
-                        <div className="column">
-                            <fieldset className="form">
-                                <div className="form-group">
-                                    <label htmlFor="show_time">Show Time: </label>
-                                    <input type="text" id="show_time" className="form-control" 
-                                    placeholder="Show Time" value={show.show_time}
-                                    onChange={handleControlledInputChange}/>
-                                </div>
-                            </fieldset>
-                            <fieldset className="form">
-                                <div className="form-group">
-                                    <label htmlFor="set_length">Set Length: </label>
-                                    <input type="text" id="set_length" className="form-control" 
-                                    placeholder="Set Length" value={show.set_length}
-                                    onChange={handleControlledInputChange}/>
-                                </div>
-                            </fieldset>
-                        </div>
-
-                        
+                                   
                         <div className="column">
                             <fieldset className="form">
                                 <div className="form-group">    
                                     <textarea cols="50" rows="10" 
-                                    id="notes" className="form-control"
+                                    id="notes" className="form-field"
                                     value={show.notes} placeholder="Notes"
                                     onChange={handleControlledInputChange}/>
                                 </div>
@@ -166,13 +103,8 @@ export const ShowForm = () => {
                     </div>
                 </div>
             </div>
-            
-            
-            <button className="btn btn-primary"
-                disabled={isLoading}
-                onClick={handleClickSaveShow}>
-                Save Show
-            </button>
+        </div>
+
         </form>
         </article>
         </>
