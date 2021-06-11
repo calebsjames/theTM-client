@@ -1,0 +1,16 @@
+#terms{
+    width: 400px
+}
+
+#checks {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#support{
+    width: 94%;
+}
+
+#artist_form {
+    width: 85%;
+}

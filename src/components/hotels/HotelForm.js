@@ -77,7 +77,7 @@ export const HotelForm = () => {
                 <div className="column">
                     <fieldset className="form">
                         <div className="form-group">
-                            <label htmlFor="name">Hotel: </label>
+                            <label className="label" htmlFor="name">Hotel: </label>
                             <input type="text" id="name" className="form-field"
                              placeholder="Hotel" value={hotel.name}
                             onChange={handleControlledInputChange}/>
@@ -96,7 +96,7 @@ export const HotelForm = () => {
                 <div className="column">
                     <fieldset className="form">
                         <div className="form-group">
-                            <label htmlFor="phone">Phone: </label>
+                            <label className="label" htmlFor="phone">Phone: </label>
                             <input type="text" id="phone" className="form-field"
                             placeholder="Phone" value={hotel.phone}
                             onChange={handleControlledInputChange}/>
@@ -112,6 +112,9 @@ export const HotelForm = () => {
                     </fieldset>
                 </div>
 
+                
+                </div>
+
                 <div className="column">
                     <fieldset className="form">
                         <div className="form-group">    
@@ -121,9 +124,6 @@ export const HotelForm = () => {
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
-                
-                </div>
-
             </div>    
             
             

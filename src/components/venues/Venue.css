@@ -14,7 +14,7 @@
 }
 
 #name {
-    width: 400px
+    width: 400px;
 }
 
 #contact {
@@ -25,34 +25,34 @@
     width: 400px
 }
 
-#name {
+#phone {
+    width: 190px
+}
+
+#cell {
+    width: 190px
+}
+
+#website {
     width: 400px
 }
 
-#name {
+#capacity {
+    width: 50px
+}
+
+#merch_sales {
+    width: 100px
+}
+
+#merch_fee {
     width: 400px
 }
 
-#name {
-    width: 400px
+#hall_fee {
+    width: 50px
 }
 
-#name {
-    width: 400px
-}
-
-#name {
-    width: 400px
-}
-
-#name {
-    width: 400px
-}
-
-#name {
-    width: 400px
-}
-
-#name {
+#email {
     width: 400px
 }

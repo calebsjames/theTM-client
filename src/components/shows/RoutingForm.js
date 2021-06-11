@@ -71,7 +71,7 @@ export const RoutingForm = () => {
                 <div className="row">
                     <fieldset className="form">
                         <div className="form-group">
-                            <label htmlFor="routing">Routing: </label>
+                            <label className="label" htmlFor="routing">Routing: </label>
                             <input type="text" id="routing" className="form-field"
                             autoFocus placeholder="Routing" value={show.routing}
                             onChange={handleControlledInputChange}/>
@@ -82,7 +82,7 @@ export const RoutingForm = () => {
                         <div className="column">
                             <fieldset className="form">
                                 <div className="form-group">
-                                    <label htmlFor="miles_to_drive">Miles: </label>
+                                    <label className="label" htmlFor="miles_to_drive">Miles: </label>
                                     <input type="text" id="miles_to_drive" className="form-field"
                                     placeholder="Miles" value={show.miles_to_drive}
                                     onChange={handleControlledInputChange}/>
