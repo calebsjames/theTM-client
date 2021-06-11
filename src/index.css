@@ -92,4 +92,10 @@ a:hover, a:active, a:focus {
   flex-direction: row;
 }
 
+.detailbox {
+  margin: 10px;
+}
 
+.label{
+  margin: 10px;
+}
