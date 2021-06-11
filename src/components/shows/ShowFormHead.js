@@ -16,16 +16,9 @@ export const ShowFormHead = () => {
     
     //Define the intial state of the Show with useState()
     const [show, setShow] = useState({
-        advanced: false,
-        support: "",
-        notes: "",
-        date_on_artist_site: false,
-        date_on_calendar: false,
-        date_on_socials: false,
-        date_on_venue_site: false,
-        contracted: false,
-        contract_signed: false,
-        promo_materials_sent: false
+        artist: false,
+        date: "",
+        status: ""
     });
 
 

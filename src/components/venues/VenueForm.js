@@ -1,14 +1,17 @@
 //import statements
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
+import { ShowContext } from "../shows/ShowProvider";
 import { VenueContext } from "../venues/VenueProvider";
 import "./Venue.css"
+
 
 
 //export function to display form for new venue
 export const VenueForm = () => {
     
-    const { addVenue, getVenueById, editVenue, getVenues } = useContext(VenueContext)
+    const { addVenue, getVenueById, editVenue, getVenues, Venues } = useContext(VenueContext)
+    const { getShowById, editShow, getShows } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
@@ -52,29 +55,23 @@ export const VenueForm = () => {
 
 
 
+    useEffect(() => {
+        //get all Shows
+        getShows().then(() => {
 
-
-    // useEffect(() => {
-    //     //get all Venues
-    //     getVenues().then(() => {
-
-    //     // if showID exists
-    //     if (showId) {
-    //         //get that venue
-    //         getVenueById(venueId)
-    //         //then setVenue to that found Venue
-    //         .then(Venue => {
-    //             setVenue(Venue)
+            //get that show
+            getShowById(showId)
+            //then setShow to that found Show
+            .then(Show => {
+                setVenue(Show.venue)
                 
-    //             setIsLoading(false)
-    //         })
-    //     } else {
-    //         // else there is no data
-    //         setIsLoading(false)
-    //     }
-    //     })
-    // }, [])
+                
+                setIsLoading(false)
+            })
+        })
+    }, [])
 
+    // const venue = Venues.find(v => parseInt(v.id) === parseInt(show?.venue_id))
 
     //Return this HTML
     return (
