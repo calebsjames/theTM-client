@@ -22,7 +22,7 @@ export const PromoterProvider = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             },
             body: JSON.stringify(promoterObj)
         })
@@ -33,7 +33,7 @@ export const PromoterProvider = (props) => {
     const getPromoterById = (id) => {
         return fetch(`http://localhost:8000/promoters/${id}`, {
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ export const PromoterProvider = (props) => {
         return fetch(`http://localhost:8000/promoters/${promoterId}`, {
             method: "DELETE",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(getPromoters)
@@ -55,7 +55,7 @@ export const PromoterProvider = (props) => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+            "Authorization": `Token ${localStorage.getItem("tm_token")}`
           },
           body: JSON.stringify(promoter)
         })

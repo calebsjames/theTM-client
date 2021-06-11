@@ -41,23 +41,7 @@ export const HotelForm = () => {
 
 
 
-    //handle save function
-    const handleClickSaveHotel = (event) => {
-        //Prevents the browser from submitting the form
-        event.preventDefault() 
-        
-       //if in the edit page, editHotel() then navigate to hotels 
-       if (hotelId) {
-        editHotel(hotel)
-        .then(history.goBack)
-        
-        } else {
-       
-        //create a new Hotel then move to newMainParachute()
-        addHotel(hotel)
-        .then(() => history.push("/newmainparachute"))
-      
-    }}
+    
 
 
     // useEffect(() => {
@@ -94,7 +78,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="name">Hotel: </label>
-                            <input type="text" id="name" className="form-control"
+                            <input type="text" id="name" className="form-field"
                              placeholder="Hotel" value={hotel.name}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -102,7 +86,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
-                            id="address" className="form-control"
+                            id="address" className="form-field"
                             value={hotel.address} placeholder="Address"
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -113,7 +97,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="phone">Phone: </label>
-                            <input type="text" id="phone" className="form-control"
+                            <input type="text" id="phone" className="form-field"
                             placeholder="Phone" value={hotel.phone}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -121,7 +105,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
-                            id="confirmation" className="form-control"
+                            id="confirmation" className="form-field"
                             value={hotel.confirmation} placeholder="Confirmation numbers"
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -132,7 +116,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
-                            id="notes" className="form-control"
+                            id="notes" className="form-field"
                             value={hotel.notes} placeholder="Notes"
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -143,12 +127,7 @@ export const HotelForm = () => {
             </div>    
             
             
-            
-            <button className="btn btn-primary"
-                disabled={isLoading}
-                onClick={handleClickSaveHotel}>
-                Save Hotel
-            </button>
+
         </form>
         </article>
         </>

@@ -22,7 +22,7 @@ export const ShowProvider = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             },
             body: JSON.stringify(showObj)
         })
@@ -33,7 +33,7 @@ export const ShowProvider = (props) => {
     const getShowById = (id) => {
         return fetch(`http://localhost:8000/shows/${id}`, {
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ export const ShowProvider = (props) => {
         return fetch(`http://localhost:8000/shows/${showId}`, {
             method: "DELETE",
             headers: {
-                "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+                "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
         })
             .then(getShows)
@@ -55,7 +55,7 @@ export const ShowProvider = (props) => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("rare_user_id")}`
+            "Authorization": `Token ${localStorage.getItem("tm_token")}`
           },
           body: JSON.stringify(show)
         })

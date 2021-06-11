@@ -2,10 +2,10 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { ShowContext } from "../shows/ShowProvider";
-
+import "../App.css"
 
 //export function to display form for new show
-export const ShowForm = () => {
+export const ShowFormA = () => {
     
     const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
     const { showId } = useParams()
@@ -64,31 +64,13 @@ export const ShowForm = () => {
     }
 
 
-    //handle save function
-    const handleClickSaveShow = (event) => {
-        //Prevents the browser from submitting the form
-        event.preventDefault() 
-        
-       //if in the edit page, editShow() then navigate to shows 
-       if (showId) {
-        editShow(show)
-        .then(history.goBack)
-        
-        } else {
-       
-        //create a new Show then move to newMainParachute()
-        addShow(show)
-        .then(() => history.push("/newmainparachute"))
-      
-    }}
+    
 
 
     useEffect(() => {
         //get all Shows
         getShows().then(() => {
 
-        // if showID exists
-        if (showId) {
             //get that show
             getShowById(showId)
             //then setShow to that found Show
@@ -97,10 +79,6 @@ export const ShowForm = () => {
                 
                 setIsLoading(false)
             })
-        } else {
-            // else there is no data
-            setIsLoading(false)
-        }
         })
     }, [])
 
@@ -114,7 +92,7 @@ export const ShowForm = () => {
             <fieldset className="form">
                 <div className="form-group">
                     <label htmlFor="terms">Terms: </label>
-                    <input type="text" id="terms" className="form-control"
+                    <input type="text" id="terms" className="form-field"
                     autoFocus placeholder="Terms" value={show.terms}
                     onChange={handleControlledInputChange}/>
                 </div>
@@ -124,7 +102,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="load_in">Load-in: </label>
-                            <input type="text" id="load_in" className="form-control"
+                            <input type="text" id="load_in" className="form-field"
                             placeholder="Load-in" value={show.load_in}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -132,7 +110,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="sound_check">Sound Check</label>
-                            <input type="text" id="sound_check" className="form-control"
+                            <input type="text" id="sound_check" className="form-field"
                             placeholder="Sound Check" value={show.sound_check}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -140,7 +118,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="doors">Doors: </label>
-                            <input type="text" id="doors" className="form-control" 
+                            <input type="text" id="doors" className="form-field" 
                             placeholder="Doors" value={show.doors}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -148,7 +126,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="show_time">Show Time: </label>
-                            <input type="text" id="show_time" className="form-control" 
+                            <input type="text" id="show_time" className="form-field" 
                             placeholder="Show Time" value={show.show_time}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -156,7 +134,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="set_length">Set Length: </label>
-                            <input type="text" id="set_length" className="form-control" 
+                            <input type="text" id="set_length" className="form-field" 
                             placeholder="Set Length" value={show.set_length}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -164,7 +142,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="deposit">Deposit: </label>
-                            <input type="text" id="deposit" className="form-control"
+                            <input type="text" id="deposit" className="form-field"
                             placeholder="Deposit" value={show.deposit}
                             onChange={handleControlledInputChange} />
                         </div>
@@ -172,7 +150,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="ages">Ages: </label>
-                            <input type="text" id="ages" className="form-control"
+                            <input type="text" id="ages" className="form-field"
                             placeholder="Ages" value={show.ages}
                             onChange={handleControlledInputChange} />
                         </div>
@@ -182,7 +160,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
-                            id="weather" className="form-control"
+                            id="weather" className="form-field"
                             value={show.weather} placeholder="Weather"
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -192,7 +170,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="public_private">Public / Private: </label>
-                            <input type="text" id="public_private" className="form-control"
+                            <input type="text" id="public_private" className="form-field"
                             placeholder="Public / Private" value={show.public_private}
                             onChange={handleControlledInputChange} />
                         </div>
@@ -200,7 +178,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="door_price">Door Price: </label>
-                            <input type="text" id="door_price" className="form-control"
+                            <input type="text" id="door_price" className="form-field"
                             placeholder="Door Price" value={show.door_price}
                             onChange={handleControlledInputChange} />
                         </div>
@@ -208,7 +186,7 @@ export const ShowForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label htmlFor="billing">Billing: </label>
-                            <input type="text" id="billing" className="form-control"
+                            <input type="text" id="billing" className="form-field"
                             placeholder="Billing" value={show.billing}
                             onChange={handleControlledInputChange} />
                         </div>
@@ -216,7 +194,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="deposit_paid">Deposit Paid: </label>
-                            <input type="checkbox" id="deposit_paid" className="form-control"
+                            <input type="checkbox" id="deposit_paid" className="form-field"
                             name="deposit_paid" checked={show.deposit_paid} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -224,7 +202,7 @@ export const ShowForm = () => {
                     <fieldset className="checkbox">
                         <div className="form-group">
                             <label htmlFor="runner">Runner: </label>
-                            <input type="checkbox" id="runner" className="form-control"
+                            <input type="checkbox" id="runner" className="form-field"
                             name="runner" checked={show.runner} 
                             onChange={handleCheckboxChange}/>
                         </div>
@@ -233,11 +211,7 @@ export const ShowForm = () => {
             </div>
             
             
-            <button className="btn btn-primary"
-                disabled={isLoading}
-                onClick={handleClickSaveShow}>
-                Save Show
-            </button>
+            
         </form>
         </article>
         </>
