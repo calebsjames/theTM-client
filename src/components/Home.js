@@ -50,19 +50,31 @@ export const Home = () => {
    
 
     const handleClickSaveForm = (event) => {
-        //Prevents the browser from submitting the form
-         event.preventDefault() 
-        updateVenue(venue)
-        updatePromoter(promoter)
+
         updateShow(show)
-        updateHotel(hotel)
-        console.log(show.id)
+        if (show.venue?.id) {   
+            updateVenue(venue)
+        } else {
+            console.log("venue not here")
+        }
+
+        if (show.promoter?.id) {   
+            updatePromoter(promoter)
+        } else {
+            console.log("promoter not here")
+        }
+
+        if (show.hotel?.id) {   
+            updateHotel(hotel)
+        } else {
+            console.log("hotel not here")
+        }
         
     }
 
     const handleNewShow = () => {
         const newShow = {
-            id: 0,
+            
             advanced: false,
             ages: "",
             artist: "",
@@ -101,9 +113,9 @@ export const Home = () => {
             terms: "",
             ticket_sales: 0,
             weather: "",
-            hotelId: null,
-            promoterId: null,
-            venueId: null,
+            hotel: null,
+            promoter: null,
+            venue: null,
             user_id: 1
         };
         addShow(newShow)
