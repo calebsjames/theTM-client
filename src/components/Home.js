@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory, useParams } from "react-router"
+import { ShowAsideList } from "./asides/PreviousShowsList"
 import { ContactNoteContext } from "./contactNotes/ContactProvider"
 import { HotelForm } from "./hotels/HotelForm"
 import { HotelContext } from "./hotels/HotelProvider"
@@ -72,7 +73,7 @@ export const Home = () => {
                 <HotelForm />
                 <RoutingForm />
             </div>
-            
+            <ShowAsideList />
         </>
     )
 }
