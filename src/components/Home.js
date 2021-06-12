@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router"
-import { ShowAsideList } from "./asides/PreviousShowsList"
+import { PreviousShowsList } from "./asides/PreviousShowsList"
+import { FutureShowsList } from "./asides/FutureShowsList"
 import { ContactNoteContext } from "./contactNotes/ContactProvider"
 import { HotelForm } from "./hotels/HotelForm"
 import { HotelContext } from "./hotels/HotelProvider"
@@ -18,15 +19,18 @@ import { VenueContext } from "./venues/VenueProvider"
 
 
 export const Home = () => {
-    const { getShows, shows, searchTerms } = useContext(ShowContext)
+    const { getShows, shows, searchTerms, show, updateShow, addShow } = useContext(ShowContext)
     // const { getUsers, users } = useContext(UserContext)
-    const { getVenues, venues } = useContext(VenueContext)
-    const { getPromoters, promoters } = useContext(PromoterContext)
-    const { getHotels, hotels } = useContext(HotelContext)
+    const { getVenues, venue, updateVenue } = useContext(VenueContext)
+    const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
+    const { getHotels, hotels, updateHotel, hotel } = useContext(HotelContext)
     const { getContactNotes, contactNote } = useContext(ContactNoteContext)
     const { getSchedules, schedule } = useContext(ScheduleContext)
+    const [ isLoading, setIsLoading ] = useState(true);
+
     const history = useHistory()
     const showId = useParams()
+    
     
     
 
@@ -47,33 +51,116 @@ export const Home = () => {
     }, [])
    
 
-    // //Get data related to showId and load it into the form
-    // useEffect(() => {
-    //     getShows().then(() => {        
-    //         getShowById(showId)
-    //         .then(Show => {
-    //             setShow(Show)
-    //             setIsLoading(false)
-    //         })
+    const handleClickSaveForm = (event) => {
+
+        updateShow(show)
+        if (show.venue?.id) {   
+            updateVenue(venue)
+        } else {
+            console.log("venue not here")
+        }
+
+        if (show.promoter?.id) {   
+            updatePromoter(promoter)
+        } else {
+            console.log("promoter not here")
+        }
+
+        if (show.hotel?.id) {   
+            updateHotel(hotel)
+        } else {
+            console.log("hotel not here")
+        }
         
-    //     })
-    // }, [])
+    }
+
+    const handleNewShow = () => {
+        const newShow = {
+            
+            advanced: false,
+            ages: "",
+            artist: "",
+            billing: "",
+            bus_call: "00:00",
+            comments: "",
+            contracted: false,
+            contract_signed: false,
+            curfew: "00:00",
+            date: "1950-01-01",
+            date_on_artist_site: false,
+            date_on_calendar: false,
+            date_on_socials: false,
+            date_on_venue_site: false,
+            deposit: 0,
+            deposit_paid: false,
+            door_price: 0,
+            door_time: "00:00",
+            drive_time: "",
+            gross_income: 0,
+            guarantee: 0,
+            guest_list: "",
+            guest_list_sent: false,
+            load_in: "00:00",
+            miles_to_drive: 0,
+            public_private: "",
+            promo_materials_sent: false,
+            routing: "",
+            routing_notes: "",
+            runner: false,     
+            show_length: "",
+            show_time: "00:00",
+            sound_check: "00:00",
+            support: "",
+            status: "",
+            terms: "",
+            ticket_sales: 0,
+            weather: "",
+            hotel: null,
+            promoter: null,
+            venue: null,
+            user_id: 1
+        };
+        addShow(newShow)
+        .then(showid => {
+            history.push(`/show/${showid}`)
+
+        }) 
+    }
 
 
       return (
-        <>
-            <ShowFormHead />
-            <div id="detail_row" className="flex">
-                <VenueForm />
-                <ShowFormA />
-                <PromoterForm />
+        <>  
+            <div id="main">
+                <ShowFormHead />
+                <div className="flex">
+                    <div id="containerLeft">
+                        <div id="detail_row" className="flex">
+                            <VenueForm />
+                            <ShowFormA />
+                            <PromoterForm />
+                        </div>
+                        <ShowFormB />
+                        <div className="flex">
+                            <HotelForm />
+                            <RoutingForm />
+                        </div>
+                    </div>
+                    <div id="containerRight">
+                        <PreviousShowsList />
+                        <FutureShowsList />
+                    </div>
+                </div>
+                <button className="btn btn-primary"
+                // disabled={isLoading}
+                onClick={handleClickSaveForm}>
+                Save</button>
+                
+                
+                <button className="btn btn-primary"
+                // disabled={isLoading}
+                onClick={handleNewShow}>
+                New Show</button>
             </div>
-            <ShowFormB />
-            <div className="flex">
-                <HotelForm />
-                <RoutingForm />
-            </div>
-            <ShowAsideList />
         </>
     )
 }

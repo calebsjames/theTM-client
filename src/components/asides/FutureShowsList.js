@@ -3,7 +3,7 @@ import { ShowContext } from "../shows/ShowProvider"
 import { PreviousShows } from "./PreviousShows"
 
 
-export const PreviousShowsList = () => {
+export const FutureShowsList = () => {
     
     // This state changes when `getShows()` is invoked below
     const { shows, getShows } = useContext(ShowContext)
@@ -16,20 +16,20 @@ export const PreviousShowsList = () => {
 
   const showsSorted = shows?.sort(
     (currentShow, nextShow) =>
-        Date.parse(currentShow.date) - Date.parse(nextShow.date)
+        Date.parse(nextShow.date) - Date.parse(currentShow.date)
 )
 
   return (
-    <>         
-        <article className="previousShows">
-            <h2>Previous Shows</h2>
+    <>
+        <article className="upcomingShows"> 
+            <h2>Upcoming Shows</h2>
             {
                 showsSorted?.map(showObject => {
                     return <PreviousShows key={showObject.id} showInstance={showObject} 
                     />
                 })
             }
-        </article>
+        </article>        
     </>
 )
 }

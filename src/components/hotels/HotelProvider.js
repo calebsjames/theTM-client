@@ -7,6 +7,15 @@ export const HotelContext = createContext()
 export const HotelProvider = (props) => {
     const [hotels, setHotels] = useState([])
 
+    //Define the intial state of the Hotel with useState()
+    const [hotel, setHotel] = useState({
+        address: "",
+        confirmation: "", 
+        name: "",
+        notes: "",
+        phone: ""
+    });
+
     const getHotels = () => {
         return fetch("http://localhost:8000/hotels", {
             headers: {
@@ -72,7 +81,7 @@ export const HotelProvider = (props) => {
     */
     return (
         <HotelContext.Provider value={{
-            hotels, getHotels, addHotel, getHotelById, deleteHotel, updateHotel, searchTerms, setSearchTerms
+            hotels, getHotels, addHotel, getHotelById, deleteHotel, updateHotel, searchTerms, setSearchTerms, hotel, setHotel
         }}>
             {props.children}
         </HotelContext.Provider>

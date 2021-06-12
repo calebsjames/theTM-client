@@ -6,35 +6,23 @@ import { VenueContext } from "../venues/VenueProvider";
 import "./Venue.css"
 
 
-
 //export function to display form for new venue
 export const VenueForm = () => {
     
-    const { addVenue, getVenueById, editVenue, getVenues, Venues } = useContext(VenueContext)
     const { getShowById, editShow, getShows } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
     
-    //Define the intial state of the Venue with useState()
-    const [venue, setVenue] = useState({
-        address: "",
-        capacity: 0,
-        cell_phone: "",
-        city: "",
-        contact: "",
-        email: "",
-        hall_fee: 0,
-        phone: "",
-        website: "",
-        merch_sales: "",
-        merch_fee: "",     
-        name: "",
-        state: "",
-        zip: ""
-    });
-
-
+    
+    
+    const { addVenue, getVenueById, editVenue, getVenues, Venues, venue, setVenue } = useContext(VenueContext)
+    // export const VenueEdit = () => {
+    //         editVenue(venue)
+    // }
+    
+    
+    
 
 
     //when something changes, save it with setVenue
@@ -63,7 +51,7 @@ export const VenueForm = () => {
             getShowById(showId)
             //then setShow to that found Show
             .then(Show => {
-                setVenue(Show.venue)
+                setVenue(Show?.venue)
                 
                 
                 setIsLoading(false)
@@ -71,7 +59,7 @@ export const VenueForm = () => {
         })
     }, [])
 
-    // const venue = Venues.find(v => parseInt(v.id) === parseInt(show?.venue_id))
+
 
     //Return this HTML
     return (
@@ -85,7 +73,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="name">Venue: </label>
                             <input type="text" id="name" className="form-field"
-                            autoFocus placeholder="Venue Name" value={venue.name}
+                            autoFocus placeholder="Venue Name" value={venue?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -93,7 +81,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="contact">Contact: </label>
                             <input type="text" id="contact" className="form-field"
-                            placeholder="Contact" value={venue.contact}
+                            placeholder="Contact" value={venue?.contact}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -101,7 +89,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="address">Address</label>
                             <input type="text" id="address" className="form-field"
-                            placeholder="Address" value={venue.address}
+                            placeholder="Address" value={venue?.address}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -112,7 +100,7 @@ export const VenueForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="city">City: </label>
                         <input type="text" id="city" className="form-field" 
-                        placeholder="City" value={venue.city}
+                        placeholder="City" value={venue?.city}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>
@@ -120,7 +108,7 @@ export const VenueForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="state">St: </label>
                         <input type="text" id="state" className="form-field" 
-                        placeholder="Venue Time" value={venue.state}
+                        placeholder="Venue Time" value={venue?.state}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>
@@ -128,7 +116,7 @@ export const VenueForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="zip">Zip: </label>
                         <input type="text" id="zip" className="form-field" 
-                        placeholder="Zip" value={venue.zip}
+                        placeholder="Zip" value={venue?.zip}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>
@@ -140,7 +128,7 @@ export const VenueForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="phone">Phone: </label>
                         <input type="text" id="phone" className="form-field"
-                        placeholder="Phone" value={venue.phone}
+                        placeholder="Phone" value={venue?.phone}
                         onChange={handleControlledInputChange} />
                     </div>
                 </fieldset>
@@ -148,7 +136,7 @@ export const VenueForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="cell_phone">Cell: </label>
                         <input type="text" id="cell_phone" className="form-field"
-                        placeholder="Cell" value={venue.cell_phone}
+                        placeholder="Cell" value={venue?.cell_phone}
                         onChange={handleControlledInputChange} />
                     </div>
                 </fieldset>
@@ -158,7 +146,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="email">E-mail: </label>
                             <input type="text" id="email" className="form-field"
-                            placeholder="E-mail" value={venue.email}
+                            placeholder="E-mail" value={venue?.email}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -168,7 +156,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="website">Website: </label>
                             <input type="text" id="website" className="form-field"
-                            placeholder="Website" value={venue.website}
+                            placeholder="Website" value={venue?.website}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -179,7 +167,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="merch_sales">Merch Sales: </label>
                             <input type="text" id="merch_sales" className="form-field"
-                            placeholder="Merch Sales" value={venue.merch_sales}
+                            placeholder="Merch Sales" value={venue?.merch_sales}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -187,7 +175,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="capacity">Capacity: </label>
                             <input type="text" id="capacity" className="form-field"
-                            placeholder="Website" value={venue.capacity}
+                            placeholder="Website" value={venue?.capacity}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -195,7 +183,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="hall_fee">Hall Fee: </label>
                             <input type="text" id="hall_fee" className="form-field"
-                            placeholder="Hall Fee" value={venue.hall_fee}
+                            placeholder="Hall Fee" value={venue?.hall_fee}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -204,7 +192,7 @@ export const VenueForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="merch_fee">Merch Fee: </label>
                             <input type="text" id="merch_fee" className="form-field"
-                            placeholder="Merch Fee" value={venue.merch_fee}
+                            placeholder="Merch Fee" value={venue?.merch_fee}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>

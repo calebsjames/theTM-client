@@ -9,17 +9,11 @@ import "../App.css"
 //export function to display form for new show
 export const ShowFormHead = () => {
     
-    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
+    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
     
-    //Define the intial state of the Show with useState()
-    const [show, setShow] = useState({
-        artist: false,
-        date: "",
-        status: ""
-    });
 
 
 
@@ -85,7 +79,12 @@ export const ShowFormHead = () => {
                             <div className="form-group">
                                 <select type="text" id="status" className="form-field"
                                 placeholder="Status" value={show.status}
-                                onChange={handleControlledInputChange}/>
+                                onChange={handleControlledInputChange}>
+                                    <option value="Contracted">Contracted</option>
+                                    <option value="Confirmed">Confirmed</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
                             </div>
                         </fieldset>
                     </div>
