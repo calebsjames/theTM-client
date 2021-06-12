@@ -79,7 +79,12 @@ export const ShowFormHead = () => {
                             <div className="form-group">
                                 <select type="text" id="status" className="form-field"
                                 placeholder="Status" value={show.status}
-                                onChange={handleControlledInputChange}/>
+                                onChange={handleControlledInputChange}>
+                                    <option value="Contracted">Contracted</option>
+                                    <option value="Confirmed">Confirmed</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
                             </div>
                         </fieldset>
                     </div>

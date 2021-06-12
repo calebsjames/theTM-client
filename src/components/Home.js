@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router"
+import { PreviousShowsList } from "./asides/PreviousShowsList"
+import { FutureShowsList } from "./asides/FutureShowsList"
 import { ContactNoteContext } from "./contactNotes/ContactProvider"
 import { HotelForm } from "./hotels/HotelForm"
 import { HotelContext } from "./hotels/HotelProvider"
@@ -127,30 +129,38 @@ export const Home = () => {
 
 
       return (
-        <>
-            <ShowFormHead />
-            <div id="detail_row" className="flex">
-                <VenueForm />
-                <ShowFormA />
-                <PromoterForm />
+        <>  
+            <div id="main">
+                <ShowFormHead />
+                <div className="flex">
+                    <div id="containerLeft">
+                        <div id="detail_row" className="flex">
+                            <VenueForm />
+                            <ShowFormA />
+                            <PromoterForm />
+                        </div>
+                        <ShowFormB />
+                        <div className="flex">
+                            <HotelForm />
+                            <RoutingForm />
+                        </div>
+                    </div>
+                    <div id="containerRight">
+                        <PreviousShowsList />
+                        <FutureShowsList />
+                    </div>
+                </div>
+                <button className="btn btn-primary"
+                // disabled={isLoading}
+                onClick={handleClickSaveForm}>
+                Save</button>
+                
+                
+                <button className="btn btn-primary"
+                // disabled={isLoading}
+                onClick={handleNewShow}>
+                New Show</button>
             </div>
-            <ShowFormB />
-            <div className="flex">
-                <HotelForm />
-                <RoutingForm />
-            </div>
-
-            <button className="btn btn-primary"
-            // disabled={isLoading}
-            onClick={handleClickSaveForm}>
-            Save</button>
-            
-            
-            <button className="btn btn-primary"
-            // disabled={isLoading}
-            onClick={handleNewShow}>
-            New Show</button>
-            
         </>
     )
 }
