@@ -17,32 +17,12 @@ export const ScheduleListForm = () => {
     const history = useHistory();
     
 
-    const handleScheduleEntry = () => {
-    
-        
-        addSchedule(schedule)
-        .then(getSchedules) 
-    }
-
-
-    //when something changes, save it with setSchedule
-    const handleControlledInputChange = (event) => {
-        //make a new copy of schedule
-        const newSchedule = { ...schedule }
-        //the value of the event
-        let selectedVal = event.target.value
-
-        /* Set the property to the new value
-        using object bracket notation. */
-        newSchedule[event.target.id] = selectedVal
-        
-        // update state
-        setSchedule(newSchedule)   
-    }
 
 
 
-    let showDate = ""
+
+
+
 
 
     useEffect(() => {
