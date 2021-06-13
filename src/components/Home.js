@@ -15,6 +15,8 @@ import { ShowFormHead } from "./shows/ShowFormHead"
 import { ShowContext } from "./shows/ShowProvider"
 import { VenueForm } from "./venues/VenueForm"
 import { VenueContext } from "./venues/VenueProvider"
+import { ScheduleForm } from "./schedules/ScheduleForm"
+import { ScheduleListForm } from "./schedules/ScheduleListForm"
 
 
 const contentTarget = document.querySelector(".project_modal")
@@ -33,18 +35,12 @@ export const Home = () => {
     const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
     const { getHotels, hotels, updateHotel, hotel } = useContext(HotelContext)
     const { getContactNotes, contactNote } = useContext(ContactNoteContext)
-    const { getSchedules, schedule } = useContext(ScheduleContext)
+    const { getSchedules, schedule, addSchedule, newSchedule } = useContext(ScheduleContext)
     const [ isLoading, setIsLoading ] = useState(true);
     
     const history = useHistory()
     const showId = useParams()
     
-    
-    
-
-  
-
-
     
 
     // Initialization effect hook
@@ -59,28 +55,6 @@ export const Home = () => {
     }, [])
    
 
-    const handleClickSaveForm = (event) => {
-
-        updateShow(show)
-        if (show.venue?.id) {   
-            updateVenue(venue)
-        } else {
-            console.log("venue not here")
-        }
-
-        if (show.promoter?.id) {   
-            updatePromoter(promoter)
-        } else {
-            console.log("promoter not here")
-        }
-
-        if (show.hotel?.id) {   
-            updateHotel(hotel)
-        } else {
-            console.log("hotel not here")
-        }
-        
-    }
 
     const handleNewShow = () => {
         const newShow = {
@@ -136,6 +110,44 @@ export const Home = () => {
     }
 
 
+    const handleScheduleEntry = () => {
+        const newEntry = {
+            
+            
+            date: show?.date,
+            description: "",
+            show: showId,
+            time: ""
+        };
+        addSchedule(newEntry)
+        .then(getSchedules) 
+    }
+
+
+    const handleClickSaveForm = (event) => {
+
+        updateShow(show)
+        if (show.venue?.id) {   
+            updateVenue(venue)
+        } else {
+            console.log("venue not here")
+        }
+
+        if (show.promoter?.id) {   
+            updatePromoter(promoter)
+        } else {
+            console.log("promoter not here")
+        }
+
+        if (show.hotel?.id) {   
+            updateHotel(hotel)
+        } else {
+            console.log("hotel not here")
+        }
+        
+    }
+
+
       return (
         <>  
             <div id="main">
@@ -151,6 +163,10 @@ export const Home = () => {
                         <div className="flex">
                             <HotelForm />
                             <RoutingForm />
+                        </div>
+                        <div> 
+                            <ScheduleForm /> <br></br>
+                            <ScheduleListForm />
                         </div>
                     </div>
                     <div id="containerRight">

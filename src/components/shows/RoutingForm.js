@@ -31,12 +31,8 @@ export const RoutingForm = () => {
         // update state
         setShow(newShow)   
     }
-
     
-
-
-
-
+    
     useEffect(() => {
         //get all Shows
         getShows().then(() => {
@@ -51,6 +47,10 @@ export const RoutingForm = () => {
             })
         })
     }, [])
+
+
+
+
 
 
     //Return this HTML

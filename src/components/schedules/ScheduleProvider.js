@@ -1,11 +1,22 @@
 import React, { useState, createContext } from "react"
+import { useParams } from "react-router"
 
 // The context is imported and used by individual components that need data. Makes a variable global.
 export const ScheduleContext = createContext()
 
 // This component establishes what data can be used.
 export const ScheduleProvider = (props) => {
+    const { showId } = useParams()
     const [schedules, setSchedules] = useState([])
+    
+    const [schedule, setSchedule] = useState({
+        date: "1950-01-01",
+        description: "",
+        show: showId,
+        time: "01:00:00"
+        
+    })
+
 
     const getSchedules = () => {
         return fetch("http://localhost:8000/schedules", {
@@ -18,6 +29,7 @@ export const ScheduleProvider = (props) => {
     }
 
     const addSchedule = scheduleObj => {
+        
         return fetch("http://localhost:8000/schedules", {
             method: "POST",
             headers: {
@@ -72,7 +84,7 @@ export const ScheduleProvider = (props) => {
     */
     return (
         <ScheduleContext.Provider value={{
-            schedules, getSchedules, addSchedule, getScheduleById, deleteSchedule, updateSchedule, searchTerms, setSearchTerms
+            schedules, getSchedules, addSchedule, getScheduleById, deleteSchedule, updateSchedule, searchTerms, setSearchTerms, schedule, setSchedule
         }}>
             {props.children}
         </ScheduleContext.Provider>

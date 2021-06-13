@@ -9,7 +9,7 @@ import { ShowContext } from "../shows/ShowProvider";
 export const HotelForm = () => {
     
     const { addHotel, getHotelById, editHotel, getHotels, hotel, setHotel } = useContext(HotelContext)
-    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
+    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
@@ -46,13 +46,15 @@ export const HotelForm = () => {
             getShowById(showId)
             //then setShow to that found Show
             .then(Show => {
-                setHotel(Show.hotel)
-                
-                
-                setIsLoading(false)
+                if(show?.hotel) {
+                    setHotel(Show?.hotel)
+                    
+                    } else {    
+                    setIsLoading(false)
+                    }
             })
         })
-    }, [])
+    }, [show])
 
 
     //Return this HTML

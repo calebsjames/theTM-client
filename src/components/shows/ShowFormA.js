@@ -143,7 +143,8 @@ export const ShowFormA = () => {
                 <div className="column">
                     <fieldset className="form">
                         <div className="form-group">    
-                            <textarea cols="50" rows="10" 
+                            <label className="label" htmlFor="weather">Weather: </label>
+                            <textarea cols="25" rows="10" 
                             id="weather" className="form-field"
                             value={show.weather} placeholder="Weather"
                             onChange={handleControlledInputChange}/>

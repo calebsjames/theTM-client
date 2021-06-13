@@ -9,7 +9,7 @@ import { ShowContext } from "../shows/ShowProvider";
 export const PromoterForm = () => {
     
     const { addPromoter, getPromoterById, updatePromoter, getPromoters, promoter, setPromoter } = useContext(PromoterContext)
-    const { addShow, getShowById, editShow, getShows } = useContext(ShowContext)
+    const { addShow, getShowById, editShow, getShows, show } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
@@ -42,13 +42,15 @@ export const PromoterForm = () => {
             getShowById(showId)
             //then setShow to that found Show
             .then(Show => {
-                setPromoter(Show.promoter)
-                
-                
-                setIsLoading(false)
+                if(show?.promoter) {
+                    setPromoter(Show?.promoter)
+                    
+                    } else {    
+                    
+                    }
             })
         })
-    }, [])
+    }, [show])
 
 
     //Return this HTML
