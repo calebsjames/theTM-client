@@ -17,9 +17,17 @@ import { VenueForm } from "./venues/VenueForm"
 import { VenueContext } from "./venues/VenueProvider"
 
 
+const contentTarget = document.querySelector(".project_modal")
+const eventHub = document.querySelector(".landing")
+
+// eventHub.addEventListener("click", e => {
+//   if (e.target.id === "containerRight"){
+//       setShow()
+//   }
+
 
 export const Home = () => {
-    const { getShows, shows, searchTerms, show, updateShow, addShow } = useContext(ShowContext)
+    const { getShows, shows, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
     // const { getUsers, users } = useContext(UserContext)
     const { getVenues, venue, updateVenue } = useContext(VenueContext)
     const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
@@ -27,7 +35,7 @@ export const Home = () => {
     const { getContactNotes, contactNote } = useContext(ContactNoteContext)
     const { getSchedules, schedule } = useContext(ScheduleContext)
     const [ isLoading, setIsLoading ] = useState(true);
-
+    
     const history = useHistory()
     const showId = useParams()
     
