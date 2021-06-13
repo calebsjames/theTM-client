@@ -12,7 +12,7 @@ import { VenueProvider } from "./venues/VenueProvider"
 
 
 export const ApplicationViews = () => {
-    console.log("1")
+
     return <>
         <Route exact path="/">
             <ShowProvider>

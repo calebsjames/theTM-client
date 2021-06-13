@@ -17,9 +17,7 @@ export const FutureShowsList = () => {
     
     const currentdate = new Date().toISOString().slice(0, 10)
     const showsFiltered = shows.filter(show => show.date >= currentdate)
-    console.log("Past Date!", currentdate)
-    console.log("Past Filtered!", showsFiltered)
-    console.log(shows)
+    
     const showsSorted = showsFiltered?.sort(
         
     (currentShow, nextShow) =>
@@ -83,8 +81,7 @@ export const FutureShowsList = () => {
 // //   const userShows = shows.filter(insp => parseInt(insp.userId) === parseInt(localStorage.getItem("tm_token")))
 //     const currentdate = new Date().toISOString().slice(0, 10)
 //     const showsFiltered = shows.filter(show => parseInt(show.date) > currentdate)
-//     console.log("Future Date", currentdate)
-//     console.log("Future Filtered", showsFiltered)
+//     
 //     // debugger
 //     const showsSorted = showsFiltered?.sort(
 //     (currentShow, nextShow) =>

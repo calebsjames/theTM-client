@@ -9,7 +9,7 @@ import "./Venue.css"
 //export function to display form for new venue
 export const VenueForm = () => {
     
-    const { getShowById, editShow, getShows } = useContext(ShowContext)
+    const { getShowById, editShow, getShows, show } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
@@ -51,13 +51,17 @@ export const VenueForm = () => {
             getShowById(showId)
             //then setShow to that found Show
             .then(Show => {
-                setVenue(Show?.venue)
-                
-                
+                if(show?.venue) {
+                    
+                    setVenue(Show?.venue)
+                    
+                } else {    
+
                 setIsLoading(false)
+                }
             })
         })
-    }, [])
+    }, [show])
 
 
 
