@@ -1,11 +1,21 @@
-import React, { useState, createContext } from "react"
+import React, { useState, createContext, useContext } from "react"
+import { useParams } from "react-router"
+import { ShowContext } from "../shows/ShowProvider";
 
 // The context is imported and used by individual components that need data. Makes a variable global.
 export const ContactNoteContext = createContext()
 
+
 // This component establishes what data can be used.
 export const ContactNoteProvider = (props) => {
+    const { showId } = useParams()
     const [contactNotes, setContactNotes] = useState([])
+    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
+    
+    
+    const [contactNote, setContactNote] = useState({
+        
+    })
 
     const getContactNotes = () => {
         return fetch("http://localhost:8000/contactNotes", {
@@ -72,7 +82,7 @@ export const ContactNoteProvider = (props) => {
     */
     return (
         <ContactNoteContext.Provider value={{
-            contactNotes, getContactNotes, addContactNote, getContactNoteById, deleteContactNote, updateContactNote, searchTerms, setSearchTerms
+            contactNotes, getContactNotes, addContactNote, getContactNoteById, deleteContactNote, updateContactNote, searchTerms, setSearchTerms, contactNote, setContactNote
         }}>
             {props.children}
         </ContactNoteContext.Provider>

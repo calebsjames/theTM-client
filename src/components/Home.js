@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router"
 import { PreviousShowsList } from "./asides/PreviousShowsList"
 import { FutureShowsList } from "./asides/FutureShowsList"
-import { ContactNoteContext } from "./contactNotes/ContactProvider"
+import { ContactNoteContext } from "./contactNotes/ContactNoteProvider"
 import { HotelForm } from "./hotels/HotelForm"
 import { HotelContext } from "./hotels/HotelProvider"
 import { PromoterForm } from "./promoters/PromoterForm"
@@ -17,6 +17,9 @@ import { VenueForm } from "./venues/VenueForm"
 import { VenueContext } from "./venues/VenueProvider"
 import { ScheduleForm } from "./schedules/ScheduleForm"
 import { ScheduleListForm } from "./schedules/ScheduleListForm"
+import { ContactNoteForm } from "./contactNotes/ContactNotesForm"
+import { ContactNoteListForm } from "./contactNotes/ContactNotesListForm"
+
 
 
 const contentTarget = document.querySelector(".project_modal")
@@ -164,9 +167,16 @@ export const Home = () => {
                             <HotelForm />
                             <RoutingForm />
                         </div>
-                        <div> 
-                            <ScheduleForm /> <br></br>
-                            <ScheduleListForm />
+                        <div className="flex">
+                            <div> 
+                                <ScheduleForm /> <br></br>
+                                <ScheduleListForm />
+                            </div>
+                            <div> 
+                                <ContactNoteForm /> <br></br>
+                                <ContactNoteListForm
+ />
+                            </div>
                         </div>
                     </div>
                     <div id="containerRight">
