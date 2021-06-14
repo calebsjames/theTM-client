@@ -53,18 +53,16 @@ export const ShowFormA = () => {
 
     useEffect(() => {
         //get all Shows
-        getShows().then(() => {
 
             //get that show
             getShowById(showId)
             //then setShow to that found Show
             .then(Show => {
-                setShow(Show)
-                
+                setShow(Show)                
                 setIsLoading(false)
             })
-        })
-    }, [])
+        }
+    , [showId])
 
 
     //Return this HTML
