@@ -31,13 +31,13 @@ export const ContactNoteListForm = () => {
 
     }, [show])
 
-    // let filteredContactNotes = contactNotes.filter(s => parseInt(s.show.id) === parseInt(showId))
+    let filteredContactNotes = contactNotes.filter(s => parseInt(s.show.id) === parseInt(showId))
     
     //Return this HTML
     return (
         <>
         <section id="contactNote">
-            {contactNotes.map(contactNoteObject => {
+            {filteredContactNotes.map(contactNoteObject => {
             
                 return <ContactNote key={contactNoteObject.id} 
                 contactNoteInstance={contactNoteObject}

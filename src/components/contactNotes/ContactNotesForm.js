@@ -19,7 +19,7 @@ export const ContactNoteForm = () => {
     const handleContactEntry = () => {
         debugger
         const newContactNote = { ...contactNote }
-        newContactNote.venue = show?.venue.id
+        newContactNote.show = showId
         
 
         addContactNote(newContactNote)

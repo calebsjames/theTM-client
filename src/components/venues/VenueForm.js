@@ -16,7 +16,7 @@ export const VenueForm = () => {
     
     
     
-    const { addVenue, getVenueById, editVenue, getVenues, Venues, venue, setVenue } = useContext(VenueContext)
+    const { addVenue, getVenueById, editVenue, getVenues, venue, setVenue } = useContext(VenueContext)
     // export const VenueEdit = () => {
     //         editVenue(venue)
     // }
@@ -44,24 +44,38 @@ export const VenueForm = () => {
 
 
     useEffect(() => {
-        //get all Shows
-        getShows().then(() => {
 
             //get that show
             getShowById(showId)
             //then setShow to that found Show
-            .then(Show => {
+            .then(show => {
                 if(show?.venue) {
                     
-                    setVenue(Show?.venue)
+                    setVenue(show?.venue)
                     
                 } else {    
-
-                setIsLoading(false)
+                    
+                    setVenue({
+                        address: "",
+                        capacity: 0,
+                        cell_phone: "",
+                        city: "",
+                        contact: "",
+                        email: "",
+                        hall_fee: 0,
+                        phone: "",
+                        website: "",
+                        merch_sales: "",
+                        merch_fee: "",     
+                        name: "",
+                        state: "",
+                        zip: ""
+                    })
+                    setIsLoading(false)
                 }
             })
-        })
-    }, [show])
+        
+    }, [showId])
 
 
 

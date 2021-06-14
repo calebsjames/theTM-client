@@ -54,7 +54,7 @@ export const HotelForm = () => {
                     }
             })
         })
-    }, [show])
+    }, [showId])
 
 
     //Return this HTML
@@ -70,7 +70,7 @@ export const HotelForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="name">Hotel: </label>
                             <input type="text" id="name" className="form-field"
-                             placeholder="Hotel" value={hotel.name}
+                             placeholder="Hotel" value={hotel?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -78,7 +78,7 @@ export const HotelForm = () => {
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
                             id="address" className="form-field"
-                            value={hotel.address} placeholder="Address"
+                            value={hotel?.address} placeholder="Address"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -89,7 +89,7 @@ export const HotelForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="phone">Phone: </label>
                             <input type="text" id="phone" className="form-field"
-                            placeholder="Phone" value={hotel.phone}
+                            placeholder="Phone" value={hotel?.phone}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -97,7 +97,7 @@ export const HotelForm = () => {
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
                             id="confirmation" className="form-field"
-                            value={hotel.confirmation} placeholder="Confirmation numbers"
+                            value={hotel?.confirmation} placeholder="Confirmation numbers"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -111,7 +111,7 @@ export const HotelForm = () => {
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
                             id="notes" className="form-field"
-                            value={hotel.notes} placeholder="Notes"
+                            value={hotel?.notes} placeholder="Notes"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>

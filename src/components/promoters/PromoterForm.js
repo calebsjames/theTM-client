@@ -35,22 +35,34 @@ export const PromoterForm = () => {
 
 
     useEffect(() => {
-        //get all Shows
-        getShows().then(() => {
 
-            //get that show
+            debugger
             getShowById(showId)
             //then setShow to that found Show
-            .then(Show => {
+            .then(show => {
                 if(show?.promoter) {
-                    setPromoter(Show?.promoter)
+                    setPromoter(show?.promoter)
                     
                     } else {    
-                    
+                        setPromoter({
+                            
+                            address: "",
+                            cell_phone: "",
+                            city: "",
+                            company: "",
+                            email: "", 
+                            name: "",
+                            notes: "",
+                            phone: "",
+                            state: "",
+                            zip: ""
+                        
+                        })
+                        setIsLoading(false)
                     }
-            })
+            
         })
-    }, [show])
+    }, [showId])
 
 
     //Return this HTML
@@ -65,7 +77,7 @@ export const PromoterForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="name">Promoter: </label>
                             <input type="text" id="name" className="form-field"
-                            autoFocus placeholder="Promoter" value={promoter.name}
+                            autoFocus placeholder="Promoter" value={promoter?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -73,7 +85,7 @@ export const PromoterForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="company">Company: </label>
                             <input type="text" id="company" className="form-field"
-                            placeholder="Company" value={promoter.company}
+                            placeholder="Company" value={promoter?.company}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -81,7 +93,7 @@ export const PromoterForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="address">Address</label>
                             <input type="text" id="address" className="form-field"
-                            placeholder="Address" value={promoter.address}
+                            placeholder="Address" value={promoter?.address}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -93,7 +105,7 @@ export const PromoterForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="city">City: </label>
                         <input type="text" id="city" className="form-field" 
-                        placeholder="City" value={promoter.city}
+                        placeholder="City" value={promoter?.city}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>
@@ -101,7 +113,7 @@ export const PromoterForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="state">St: </label>
                         <input type="text" id="state" className="form-field" 
-                        placeholder="Promoter Time" value={promoter.state}
+                        placeholder="Promoter Time" value={promoter?.state}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>
@@ -109,7 +121,7 @@ export const PromoterForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="zip">Zip: </label>
                         <input type="text" id="zip" className="form-field" 
-                        placeholder="Zip" value={promoter.zip}
+                        placeholder="Zip" value={promoter?.zip}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>
@@ -120,7 +132,7 @@ export const PromoterForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="phone">Phone: </label>
                             <input type="text" id="phone" className="form-field"
-                            placeholder="Phone" value={promoter.phone}
+                            placeholder="Phone" value={promoter?.phone}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -128,7 +140,7 @@ export const PromoterForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="cell_phone">Cell: </label>
                             <input type="text" id="cell_phone" className="form-field"
-                            placeholder="Cell" value={promoter.cell_phone}
+                            placeholder="Cell" value={promoter?.cell_phone}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -139,7 +151,7 @@ export const PromoterForm = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="email">E-mail: </label>
                             <input type="text" id="email" className="form-field"
-                            placeholder="E-mail" value={promoter.email}
+                            placeholder="E-mail" value={promoter?.email}
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
@@ -150,7 +162,7 @@ export const PromoterForm = () => {
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
                             id="notes" className="form-field"
-                            value={promoter.notes} placeholder="Notes"
+                            value={promoter?.notes} placeholder="Notes"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>

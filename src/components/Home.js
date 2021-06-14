@@ -113,19 +113,6 @@ export const Home = () => {
     }
 
 
-    const handleScheduleEntry = () => {
-        const newEntry = {
-            
-            
-            date: show?.date,
-            description: "",
-            show: showId,
-            time: ""
-        };
-        addSchedule(newEntry)
-        .then(getSchedules) 
-    }
-
 
     const handleClickSaveForm = (event) => {
 
@@ -142,7 +129,7 @@ export const Home = () => {
             console.log("promoter not here")
         }
 
-        if (show.hotel?.id) {   
+        if (show?.hotel?.id) {   
             updateHotel(hotel)
         } else {
             console.log("hotel not here")
