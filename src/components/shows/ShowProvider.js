@@ -46,6 +46,8 @@ export const ShowProvider = (props) => {
         status: "",
         terms: "",
         ticket_sales: 0,
+        venue: null,
+        promoter: null,
         weather: ""
     });
 

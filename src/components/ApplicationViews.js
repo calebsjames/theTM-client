@@ -6,7 +6,7 @@ import { HotelProvider } from "./hotels/HotelProvider"
 import { PromoterProvider } from "./promoters/PromoterProvider"
 import { ScheduleProvider } from "./schedules/ScheduleProvider"
 import { ShowFormA } from "./shows/ShowFormA"
-import { ShowList } from "./shows/ShowList"
+
 import { ShowProvider } from "./shows/ShowProvider"
 import { VenueProvider } from "./venues/VenueProvider"
 

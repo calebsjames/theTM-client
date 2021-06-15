@@ -5,9 +5,7 @@ import { ShowContext } from "../shows/ShowProvider"
 
 
 export const PreviousShows = ({showInstance}) => {
-    const { getShows, shows, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
-    const history = useHistory()
-    const showId = useParams()
+
 
 
     return(

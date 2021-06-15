@@ -3,13 +3,13 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { ShowContext } from "../shows/ShowProvider";
 import { VenueContext } from "../venues/VenueProvider";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 import "./Venue.css"
 import {VenueModal} from "./VenueModal";
 
 
 //export function to display form for new venue
-export const VenueForm = () => {
+export const VenueFormModal = () => {
     
     const { getShowById, editShow, getShows, show } = useContext(ShowContext)
     const { showId } = useParams()
@@ -18,7 +18,7 @@ export const VenueForm = () => {
     
     
     
-    const { addVenue, getVenueById, editVenue, deleteVenue, venue, setVenue, modal, setModal } = useContext(VenueContext)
+    const { addVenue, getVenueById, editVenue, getVenues, venue, setVenue } = useContext(VenueContext)
     // export const VenueEdit = () => {
     //         editVenue(venue)
     // }
@@ -29,7 +29,7 @@ export const VenueForm = () => {
 
     //when something changes, save it with setVenue
     const handleControlledInputChange = (event) => {
-        if(show?.venue) {
+
         //make a new copy of venue
         const newVenue = { ...venue }
         //the value of the event
@@ -41,16 +41,10 @@ export const VenueForm = () => {
         
         // update state
         setVenue(newVenue)
-        } else {
-
-            setModal(!modal)
-        }   
+        
     }
 
-    const handleDelete = () => {
-        debugger
-        deleteVenue(show?.venue?.id)
-    }
+
 
     
 
@@ -88,7 +82,7 @@ export const VenueForm = () => {
                 }
             })
         
-    }, [showId])
+    }, [])
 
 
 
@@ -98,10 +92,6 @@ export const VenueForm = () => {
         <article id="venue_form_a">
         <form className="venueForm">
             <h2 className="formTitle">Venue Information</h2>
-            
-            <button onClick={()=> handleDelete()}>
-                -
-            </button>
 
                 <div className="column">
                     <fieldset className="form">

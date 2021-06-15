@@ -29,7 +29,7 @@ export const ScheduleListForm = () => {
         
         getSchedules()
 
-    }, [show])
+    }, [])
 
     let filteredSchedules = schedules.filter(s => parseInt(s.show.id) === parseInt(showId))
     

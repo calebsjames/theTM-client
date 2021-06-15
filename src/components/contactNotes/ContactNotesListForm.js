@@ -29,7 +29,7 @@ export const ContactNoteListForm = () => {
         
         getContactNotes()
 
-    }, [show])
+    }, [])
 
     let filteredContactNotes = contactNotes.filter(s => parseInt(s.show.id) === parseInt(showId))
     

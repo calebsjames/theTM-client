@@ -5,6 +5,8 @@ export const PromoterContext = createContext()
 
 // This component establishes what data can be used.
 export const PromoterProvider = (props) => {
+    const [modal, setModal] = useState(false)
+
     const [promoters, setPromoters] = useState([])
 
     //Define the intial state of the Promoter with useState()
@@ -40,7 +42,10 @@ export const PromoterProvider = (props) => {
             },
             body: JSON.stringify(promoterObj)
         })
-        .then(getPromoters)
+        .then(res => res.json())
+        .then(promoter => {
+            return promoter
+        })
     }
 
     //function to get promoter by ID
@@ -86,7 +91,8 @@ export const PromoterProvider = (props) => {
     */
     return (
         <PromoterContext.Provider value={{
-            promoters, getPromoters, addPromoter, getPromoterById, deletePromoter, updatePromoter, searchTerms, setSearchTerms, promoter, setPromoter
+            promoters, getPromoters, addPromoter, getPromoterById, deletePromoter, updatePromoter, 
+            searchTerms, setSearchTerms, promoter, setPromoter, modal, setModal
         }}>
             {props.children}
         </PromoterContext.Provider>

@@ -5,6 +5,8 @@ export const VenueContext = createContext()
 
 // This component establishes what data can be used.
 export const VenueProvider = (props) => {
+    const [modal, setModal] = useState(false)
+
     const [venues, setVenues] = useState([])
 
     const [venue, setVenue] = useState({
@@ -21,7 +23,7 @@ export const VenueProvider = (props) => {
         merch_fee: "",     
         name: "",
         state: "",
-        zip: ""
+        zip: "",
     });
 
     const getVenues = () => {
@@ -43,7 +45,10 @@ export const VenueProvider = (props) => {
             },
             body: JSON.stringify(venueObj)
         })
-        .then(getVenues)
+        .then(res => res.json())
+        .then(venue => {
+            return venue
+        })
     }
 
     //function to get venue by ID
@@ -89,7 +94,7 @@ export const VenueProvider = (props) => {
     */
     return (
         <VenueContext.Provider value={{
-            venues, getVenues, addVenue, getVenueById, deleteVenue, updateVenue, searchTerms, setSearchTerms, venue, setVenue
+            venues, getVenues, addVenue, getVenueById, deleteVenue, updateVenue, searchTerms, setSearchTerms, venue, setVenue, modal, setModal
         }}>
             {props.children}
         </VenueContext.Provider>

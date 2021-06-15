@@ -36,25 +36,33 @@ export const HotelForm = () => {
 
 
     
-
-
     useEffect(() => {
-        //get all Shows
-        getShows().then(() => {
 
-            //get that show
-            getShowById(showId)
-            //then setShow to that found Show
-            .then(Show => {
-                if(show?.hotel) {
-                    setHotel(Show?.hotel)
-                    
-                    } else {    
-                    setIsLoading(false)
-                    }
-            })
-        })
-    }, [showId])
+        getShowById(showId)
+        //then setShow to that found Show
+        .then(show => {
+            
+                setHotel(show?.hotel)
+                
+                 
+        
+    })
+}, [showId])
+
+
+    // useEffect(()=>{
+    //     getShowById(showId)
+    //     //then setShow to that found Show
+    //     .then(s => {
+    //         setShow(s)
+    //     getHotelById(show?.hotel?.id)
+    //     .then(currentHotel => {
+    //         debugger
+    //         setHotel(currentHotel)
+    //     })
+       
+    //   }, [])
+    // })
 
 
     //Return this HTML
