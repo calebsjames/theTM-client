@@ -1,23 +1,34 @@
 //import statements
 import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
-import { PromoterContext } from "../promoters/PromoterProvider";
 import { ShowContext } from "../shows/ShowProvider";
+import { PromoterContext } from "../promoters/PromoterProvider";
+
+import {PromoterModal} from "./PromoterModal";
 
 
 //export function to display form for new promoter
-export const PromoterForm = () => {
+export const PromoterFormModal = () => {
     
-    const { promoter, setPromoter, modal, setModal } = useContext(PromoterContext)
-    const { getShowById, show } = useContext(ShowContext)
+    const { getShowById, editShow, getShows, show } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
-
+    const history = useHistory();
     
+    
+    
+    const { addPromoter, getPromoterById, editPromoter, getPromoters, promoter, setPromoter } = useContext(PromoterContext)
+    // export const PromoterEdit = () => {
+    //         editPromoter(promoter)
+    // }
+    
+    
+    
+
 
     //when something changes, save it with setPromoter
     const handleControlledInputChange = (event) => {
-        if(show?.promoter) {
+
         //make a new copy of promoter
         const newPromoter = { ...promoter }
         //the value of the event
@@ -29,45 +40,45 @@ export const PromoterForm = () => {
         
         // update state
         setPromoter(newPromoter)
-        } else {
-            console.log("WORK!")
-
-            setModal(!modal)
-        }   
+        
     }
 
 
+
+    
 
 
 
     useEffect(() => {
 
+            //get that show
             getShowById(showId)
             //then setShow to that found Show
             .then(show => {
                 if(show?.promoter) {
+                    
                     setPromoter(show?.promoter)
                     
-                    } else {    
-                        setPromoter({
-                            
-                            address: "",
-                            cell_phone: "",
-                            city: "",
-                            company: "",
-                            email: "", 
-                            name: "",
-                            notes: "",
-                            phone: "",
-                            state: "",
-                            zip: ""
-                        
-                        })
-                        setIsLoading(false)
-                    }
-            
-        })
-    }, [showId])
+                } else {    
+                    
+                    setPromoter({
+                        address: "",
+                        cell_phone: "",
+                        city: "",
+                        company: "",
+                        email: "", 
+                        name: "",
+                        notes: "",
+                        phone: "",
+                        state: "",
+                        zip: ""
+                    })
+                    setIsLoading(false)
+                }
+            })
+        
+    }, [])
+
 
 
     //Return this HTML

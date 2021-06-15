@@ -15,10 +15,13 @@ import { ShowFormHead } from "./shows/ShowFormHead"
 import { ShowContext } from "./shows/ShowProvider"
 import { VenueForm } from "./venues/VenueForm"
 import { VenueContext } from "./venues/VenueProvider"
+import { VenueModal } from "./venues/VenueModal"
 import { ScheduleForm } from "./schedules/ScheduleForm"
 import { ScheduleListForm } from "./schedules/ScheduleListForm"
 import { ContactNoteForm } from "./contactNotes/ContactNotesForm"
 import { ContactNoteListForm } from "./contactNotes/ContactNotesListForm"
+import PromoterModal from "./promoters/PromoterModal"
+
 
 
 
@@ -36,7 +39,7 @@ export const Home = () => {
     // const { getUsers, users } = useContext(UserContext)
     const { getVenues, venue, updateVenue } = useContext(VenueContext)
     const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
-    const { getHotels, hotels, updateHotel, hotel } = useContext(HotelContext)
+    const { getHotels, hotels, updateHotel, setHotel, hotel, getHotelById } = useContext(HotelContext)
     const { getContactNotes, contactNote } = useContext(ContactNoteContext)
     const { getSchedules, schedule, addSchedule, newSchedule } = useContext(ScheduleContext)
     const [ isLoading, setIsLoading ] = useState(true);
@@ -55,7 +58,7 @@ export const Home = () => {
       getContactNotes()
       getSchedules()
      
-    }, [])
+    }, [showId])
    
 
 
@@ -112,7 +115,9 @@ export const Home = () => {
         }) 
     }
 
+    
 
+    
 
     const handleClickSaveForm = (event) => {
 
@@ -129,7 +134,8 @@ export const Home = () => {
             console.log("promoter not here")
         }
 
-        if (show?.hotel?.id) {   
+        if (show?.hotel?.id) {
+            debugger
             updateHotel(hotel)
         } else {
             console.log("hotel not here")
@@ -169,6 +175,8 @@ export const Home = () => {
                     <div id="containerRight">
                         <PreviousShowsList />
                         <FutureShowsList />
+                        <VenueModal />
+                        <PromoterModal />
                     </div>
                 </div>
                 <button className="btn btn-primary"

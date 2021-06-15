@@ -15,7 +15,9 @@ export const ShowFormHead = () => {
     const history = useHistory();
     
 
+    const handleSelectVenue = () => {
 
+    }
 
 
     //when something changes, save it with setShow
@@ -48,7 +50,7 @@ export const ShowFormHead = () => {
                 setIsLoading(false)
             })
         })
-    }, [])
+    }, [showId])
 
 
     //Return this HTML
