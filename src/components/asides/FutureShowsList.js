@@ -1,19 +1,22 @@
 import React, { useContext, useEffect } from "react"
+import { UserContext } from "../auth/AuthProvider"
 import { ShowContext } from "../shows/ShowProvider"
 import { PreviousShows } from "./PreviousShows"
+
 
 
 export const FutureShowsList = () => {
     
     // This state changes when `getShows()` is invoked below
     const { shows, getShows } = useContext(ShowContext)
+    // const { user } = useContext(UserContext)
 
     useEffect(() => {
         getShows()
   }, [])
 
-//   const userShows = shows.filter(insp => parseInt(insp.userId) === parseInt(localStorage.getItem("tm_token")))
-
+    // const userShows = shows.filter( show => parseInt(show.userId) === parseInt(auth.userId))
+    // console.log(user)
     
     const currentdate = new Date().toISOString().slice(0, 10)
     const showsFiltered = shows.filter(show => show.date >= currentdate)

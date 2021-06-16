@@ -8,7 +8,7 @@ import { ShowContext } from "../shows/ShowProvider";
 //export function to display form for new promoter
 export const PromoterForm = () => {
     
-    const { promoter, setPromoter, modal, setModal } = useContext(PromoterContext)
+    const { promoter, setPromoter, modal, setModal, deletePromoter } = useContext(PromoterContext)
     const { getShowById, show } = useContext(ShowContext)
     const { showId } = useParams()
     const [ isLoading, setIsLoading ] = useState(true);
@@ -37,7 +37,10 @@ export const PromoterForm = () => {
     }
 
 
-
+    const handleDelete = () => {
+        debugger
+        deletePromoter(show?.promoter?.id)
+    }
 
 
     useEffect(() => {
@@ -76,7 +79,9 @@ export const PromoterForm = () => {
         <article id="promoter_form_a">
         <form className="promoterForm">
             <h2 className="formTitle">Promoter Information</h2>
-
+            <button onClick={()=> handleDelete()}>
+                -
+            </button>
                 <div className="row">
                     <fieldset className="form">
                         <div className="form-group">
