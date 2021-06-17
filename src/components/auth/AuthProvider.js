@@ -6,7 +6,7 @@ export const UserProvider = (props) => {
     const [user, setUser] = useState({events:[]})
 
     const getUser = () => {
-        return fetch("http://localhost:8000/users", {
+        return fetch("https://the-tm-api.herokuapp.com/users", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_user_id")}`
             }
