@@ -66,6 +66,7 @@ export const PromoterFormModal = () => {
                         cell_phone: "",
                         city: "",
                         company: "",
+                        comments: "",
                         email: "", 
                         name: "",
                         notes: "",

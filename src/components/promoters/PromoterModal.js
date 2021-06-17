@@ -21,7 +21,6 @@ export const PromoterModal = () => {
     
     
     const handleClickSavePromoter = () => {
-        console.log(showId.showId)
         
         getShowById(showId.showId)
             //then setShow to that found Show
@@ -37,7 +36,7 @@ export const PromoterModal = () => {
             /* Set the property to the new value
             using object bracket notation. */
             show.promoter = promoter
-            debugger
+            
             // update state
             setShow(show)
             updateShow(show)

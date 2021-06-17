@@ -21,7 +21,7 @@ export const VenueModal = () => {
     
     
     const handleClickSaveVenue = () => {
-        console.log(showId.showId)
+        
         
         getShowById(showId.showId)
             //then setShow to that found Show
@@ -45,7 +45,6 @@ export const VenueModal = () => {
             //then setShow to that found Show
             .then(Show => {
                 setShow(Show)
-                debugger
                 setVenue(Show.venue)
             })
     

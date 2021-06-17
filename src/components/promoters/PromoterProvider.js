@@ -14,6 +14,7 @@ export const PromoterProvider = (props) => {
         address: "",
         cell_phone: "",
         city: "",
+        comments: "",
         company: "",
         email: "", 
         name: "",

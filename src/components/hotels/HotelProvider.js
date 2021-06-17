@@ -61,7 +61,7 @@ export const HotelProvider = (props) => {
     }
 
     const updateHotel = hotel => {
-        debugger
+        
         return fetch(`http://localhost:8000/hotels/${hotel.id}`, {
           method: "PUT",
           headers: {

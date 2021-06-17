@@ -86,8 +86,8 @@ export const RoutingForm = () => {
                             <fieldset className="form">
                                 <div className="form-group">    
                                     <textarea cols="50" rows="10" 
-                                    id="notes" className="form-field"
-                                    value={show.notes} placeholder="Notes"
+                                    id="routing_notes" className="form-field"
+                                    value={show.routing_notes} placeholder="Notes"
                                     onChange={handleControlledInputChange}/>
                                 </div>
                             </fieldset>

@@ -17,7 +17,7 @@ export const Venue = ({ venueInstance }) => {
     const showId = useParams()
 
     const handleVenueChoice = () => {
-        console.log(showId.showId)
+        
         
         getShowById(showId.showId)
             //then setShow to that found Show

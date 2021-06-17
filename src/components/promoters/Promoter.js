@@ -17,8 +17,7 @@ export const Promoter = ({ promoterInstance }) => {
     const showId = useParams()
 
     const handlePromoterChoice = () => {
-        console.log(showId.showId)
-        debugger
+      
         getShowById(showId.showId)
             //then setShow to that found Show
             .then(Show => {
