@@ -17,8 +17,7 @@ export const ScheduleForm = () => {
     const handleScheduleEntry = (e) => {
         // debugger
         e.preventDefault()
-        // schedule.show = showId
-        // setShow()
+        
         console.log(showId)
         addSchedule(schedule)
     }
