@@ -98,19 +98,21 @@ export const VenueForm = () => {
         <form className="venueForm">
             <h2 className="formTitle">Venue Information</h2>
             
-            <button onClick={()=> handleDelete()}>
-                -
-            </button>
 
                 <div className="column">
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="name">Venue: </label>
-                            <input type="text" id="name" className="form-field"
-                            autoFocus placeholder="Venue Name" value={venue?.name}
-                            onChange={handleControlledInputChange}/>
-                        </div>
-                    </fieldset>
+                    <div className="flex">
+                        <fieldset className="form">
+                            <div className="form-group">
+                                
+                                <input type="text" id="name" className="form-field"
+                                autoFocus placeholder="Venue Name" value={venue?.name}
+                                onChange={handleControlledInputChange}/>
+                            </div>
+                        </fieldset>
+                        <button onClick={()=> handleDelete()}>
+                            -
+                        </button>
+                    </div>
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="contact">Contact: </label>
@@ -142,7 +144,7 @@ export const VenueForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="state">St: </label>
                         <input type="text" id="state" className="form-field" 
-                        placeholder="Venue Time" value={venue?.state}
+                        placeholder="St" value={venue?.state}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>
@@ -221,7 +223,6 @@ export const VenueForm = () => {
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
-                </div>
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="merch_fee">Merch Fee: </label>
@@ -230,6 +231,7 @@ export const VenueForm = () => {
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
+                </div>
         </form>
 
         

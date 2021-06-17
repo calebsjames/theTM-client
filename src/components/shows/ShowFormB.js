@@ -71,6 +71,88 @@ export const ShowFormB = () => {
     return (
         <>
         <article id="show_form_a">
+            <div id="checks">
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="contracted">Contracted</label>
+                        <input type="checkbox" id="contracted" className="form-field"
+                        name="contracted" checked={show.contracted} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="contract_signed">Contract Signed</label>
+                        <input type="checkbox" id="contract_signed" className="form-field"
+                        name="contract_signed" checked={show.contract_signed} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="date_on_calendar">On Calendar</label>
+                        <input type="checkbox" id="date_on_calendar" className="form-field"
+                        name="date_on_calendar" checked={show.date_on_calendar} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="date_on_artist_site">On Artist Site</label>
+                        <input type="checkbox" id="date_on_artist_site" className="form-field"
+                        name="date_on_artist_site" checked={show.date_on_artist_site} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="date_on_venue_site">On Venue Site</label>
+                        <input type="checkbox" id="date_on_venue_site" className="form-field"
+                        name="date_on_venue_site" checked={show.date_on_venue_site} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="date_on_socials">On Socials</label>
+                        <input type="checkbox" id="date_on_socials" className="form-field"
+                        name="date_on_socials" checked={show.date_on_socials} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="promo_materials_sent">Promo Materials</label>
+                        <input type="checkbox" id="promo_materials_sent" className="form-field"
+                        name="promo_materials_sent" checked={show.promo_materials_sent} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="advanced">Advanced</label>
+                        <input type="checkbox" id="advanced" className="form-field"
+                        name="advanced" checked={show.advanced} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="deposit_paid">Deposit Paid: </label>
+                        <input type="checkbox" id="deposit_paid" className="form-field"
+                        name="deposit_paid" checked={show.deposit_paid} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="checkbox">
+                    <div className="form-group">
+                        <label className="label" htmlFor="runner">Runner: </label>
+                        <input type="checkbox" id="runner" className="form-field"
+                        name="runner" checked={show.runner} 
+                        onChange={handleCheckboxChange}/>
+                    </div>
+                </fieldset>
+            </div>
         <form className="showForm">
             <fieldset className="form">
                 <div className="form-group">
@@ -89,75 +171,8 @@ export const ShowFormB = () => {
                         value={show.comments} placeholder="Notes"
                         onChange={handleControlledInputChange}/>
                     </div>
-                </fieldset>
-
+                </fieldset>   
                 
-                <div id="checks">
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="contracted">Contracted</label>
-                            <input type="checkbox" id="contracted" className="form-field"
-                            name="contracted" checked={show.contracted} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="contract_signed">Contract Signed</label>
-                            <input type="checkbox" id="contract_signed" className="form-field"
-                            name="contract_signed" checked={show.contract_signed} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="date_on_calendar">On Calendar</label>
-                            <input type="checkbox" id="date_on_calendar" className="form-field"
-                            name="date_on_calendar" checked={show.date_on_calendar} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="date_on_artist_site">On Artist Site</label>
-                            <input type="checkbox" id="date_on_artist_site" className="form-field"
-                            name="date_on_artist_site" checked={show.date_on_artist_site} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="date_on_venue_site">On Venue Site</label>
-                            <input type="checkbox" id="date_on_venue_site" className="form-field"
-                            name="date_on_venue_site" checked={show.date_on_venue_site} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="date_on_socials">On Socials</label>
-                            <input type="checkbox" id="date_on_socials" className="form-field"
-                            name="date_on_socials" checked={show.date_on_socials} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="promo_materials_sent">Promo Materials</label>
-                            <input type="checkbox" id="promo_materials_sent" className="form-field"
-                            name="promo_materials_sent" checked={show.promo_materials_sent} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="advanced">Advanced</label>
-                            <input type="checkbox" id="advanced" className="form-field"
-                            name="advanced" checked={show.advanced} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                </div>
             </div>
             
             
