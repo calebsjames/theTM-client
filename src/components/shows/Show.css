@@ -1,4 +1,4 @@
-#terms{
+#terms {
     width: 400px
 }
 
@@ -7,10 +7,35 @@
     flex-wrap: wrap;
 }
 
-#support{
+#support {
     width: 94%;
 }
 
 #artist_form {
     width: 85%;
 }
+
+#load_in {
+    min-width: 110px;
+}
+
+#sound_check {
+    min-width: 110px;
+}
+
+#door_time {
+    min-width: 110px;
+}
+
+#show_time {
+    min-width: 110px;
+}
+
+#show_length {
+    width: 110px;
+}
+
+.column1 {
+    width: 110px;
+}
+

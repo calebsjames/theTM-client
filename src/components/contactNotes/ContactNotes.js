@@ -26,11 +26,10 @@ export const ContactNote = ({contactNoteInstance}) => {
 
 
     const handleContactNoteEntry = () => {  
-        debugger
         updateContactNote(contactNote)
-        .then(getContactNotes) 
     }
 
+    
 
 
     return(

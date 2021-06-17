@@ -7,7 +7,7 @@ import { ScheduleContext } from "../schedules/ScheduleProvider";
 
 export const Schedule = ({scheduleInstance}) => {
     
-    const { schedules, addSchedule, getScheduleById, updateSchedule, getSchedules, schedule, setSchedule } = useContext(ScheduleContext)
+    const { updateSchedule, getSchedules, schedule, setSchedule, deleteSchedule } = useContext(ScheduleContext)
    
 
 
@@ -25,8 +25,8 @@ export const Schedule = ({scheduleInstance}) => {
 
 
 
-    const handleScheduleEntry = () => {  
-        updateSchedule(schedule)
+    const handleDeleteEntry = () => {  
+        deleteSchedule(scheduleInstance.id)
         .then(getSchedules) 
     }
 
@@ -55,8 +55,8 @@ export const Schedule = ({scheduleInstance}) => {
                 </fieldset>
 
                 <button className="btn btn-primary"
-                onClick={handleScheduleEntry}>
-                +</button>
+                onClick={handleDeleteEntry}>
+                -</button>
 
             </div>
 

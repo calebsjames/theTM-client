@@ -50,20 +50,6 @@ export const HotelForm = () => {
 }, [showId])
 
 
-    // useEffect(()=>{
-    //     getShowById(showId)
-    //     //then setShow to that found Show
-    //     .then(s => {
-    //         setShow(s)
-    //     getHotelById(show?.hotel?.id)
-    //     .then(currentHotel => {
-    //         debugger
-    //         setHotel(currentHotel)
-    //     })
-       
-    //   }, [])
-    // })
-
 
     //Return this HTML
     return (

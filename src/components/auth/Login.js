@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link, useHistory } from "react-router-dom"
+import { ShowContext } from "../shows/ShowProvider"
 import "./Auth.css"
+
 
 
 
@@ -9,7 +11,8 @@ export const Login = props => {
     const password = React.createRef()
     const invalidDialog = React.createRef()
     const history = useHistory()
-
+    const { getsShows } = useContext(ShowContext)
+    
     const handleLogin = (e) => {
         e.preventDefault()
 
@@ -28,6 +31,7 @@ export const Login = props => {
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem( "tm_token", res.token )
+
                     history.push("/")
                 }
                 else {
@@ -44,7 +48,7 @@ export const Login = props => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Level Up</h1>
+                    <h1>Tour Manager</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label className="label" htmlFor="inputEmail"> Email address </label>

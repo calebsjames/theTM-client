@@ -30,15 +30,12 @@ export const PromoterForm = () => {
         // update state
         setPromoter(newPromoter)
         } else {
-            console.log("WORK!")
-
             setModal(!modal)
         }   
     }
 
 
     const handleDelete = () => {
-        debugger
         deletePromoter(show?.promoter?.id)
     }
 
@@ -58,6 +55,7 @@ export const PromoterForm = () => {
                             cell_phone: "",
                             city: "",
                             company: "",
+                            comments: "",
                             email: "", 
                             name: "",
                             notes: "",
@@ -171,8 +169,8 @@ export const PromoterForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
-                            id="notes" className="form-field"
-                            value={promoter?.notes} placeholder="Notes"
+                            id="comments" className="form-field"
+                            value={promoter?.comments} placeholder="Notes"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>

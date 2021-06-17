@@ -48,7 +48,6 @@ export const VenueForm = () => {
     }
 
     const handleDelete = () => {
-        debugger
         deleteVenue(show?.venue?.id)
     }
 

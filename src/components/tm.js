@@ -1,9 +1,9 @@
 import React from "react"
-import { Route, Redirect, BrowserRouter as Router} from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
-// import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { ShowProvider } from "./shows/ShowProvider"
 
 export const TM = () => (
     <>
@@ -22,7 +22,9 @@ export const TM = () => (
             if (localStorage.getItem("tm_token")) {
                 return <Redirect to="/" />
             } else {
-                return <Login />
+                return <ShowProvider>
+                    <Login />
+                </ShowProvider>
             }
         }} />
 
@@ -30,7 +32,9 @@ export const TM = () => (
             if (localStorage.getItem("tm_token")) {
                 return <Redirect to="/" />
             } else {
-                return <Register />
+                return<ShowProvider>   
+                     <Register />
+                </ShowProvider>
             }
         }} />
     </>

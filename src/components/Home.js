@@ -105,8 +105,7 @@ export const Home = () => {
             weather: "",
             hotel: null,
             promoter: null,
-            venue: null,
-            user_id: 1
+            venue: null
         };
         addShow(newShow)
         .then(showid => {
@@ -121,25 +120,26 @@ export const Home = () => {
 
     const handleClickSaveForm = (event) => {
 
+        event.preventDefault()
         updateShow(show)
         if (show.venue?.id) {   
             updateVenue(venue)
-        } else {
-            console.log("venue not here")
-        }
+        } 
 
         if (show.promoter?.id) {   
             updatePromoter(promoter)
-        } else {
-            console.log("promoter not here")
-        }
+        } 
 
         if (show?.hotel?.id) {
-            debugger
             updateHotel(hotel)
-        } else {
-            console.log("hotel not here")
-        }
+        } 
+        
+    }
+
+
+    const handleLogout = (event) => {
+        localStorage.removeItem("tm_token")
+        history.push({ pathname: "/" })
         
     }
 
@@ -189,6 +189,11 @@ export const Home = () => {
                 // disabled={isLoading}
                 onClick={handleNewShow}>
                 New Show</button>
+
+                <button className="btn btn-primary"
+                // disabled={isLoading}
+                onClick={handleLogout}>
+                Logout</button>
             </div>
         </>
     )

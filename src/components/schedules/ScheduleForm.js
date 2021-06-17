@@ -9,18 +9,15 @@ import { ShowContext } from "../shows/ShowProvider";
 //export function to display form for new schedule
 export const ScheduleForm = () => {
     
-    const { addSchedule, getScheduleById, editSchedule, getSchedules, schedule, schedules, setSchedule } = useContext(ScheduleContext)
-    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
-    const { showId } = useParams()
-    // const [ isLoading, setIsLoading ] = useState(true);
-    const history = useHistory();
+    const { addSchedule, getSchedules, schedule, setSchedule } = useContext(ScheduleContext)
+    const [ isLoading, setIsLoading ] = useState(true);
+    
     
 
-    const handleScheduleEntry = () => {
+    const handleScheduleEntry = (e) => {
     
-        
+        e.preventDefault()
         addSchedule(schedule)
-        .then(getSchedules) 
     }
 
 
@@ -39,28 +36,6 @@ export const ScheduleForm = () => {
         setSchedule(newSchedule)   
     }
 
-
-
-    let showDate = ""
-
-
-    // useEffect(() => {
-    //     //get schedules
-    //     getSchedules().then(() => {
-
-    //         //get schedules related to current show
-    //         let show_schedule = schedules.filter(s => parseInt(s.show_id) === parseInt(showId) )
-            
-    //         .then(Show => {
-    //             if(Show?.date) {
-    //                 schedules
-                    
-    //                 } else {    
-                    
-    //                 }
-    //         })
-    //     })
-    // }, [show])
 
 
     //Return this HTML

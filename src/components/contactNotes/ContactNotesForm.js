@@ -14,16 +14,15 @@ export const ContactNoteForm = () => {
     const { showId } = useParams()
     // const [ isLoading, setIsLoading ] = useState(true);
     const history = useHistory();
-    
 
-    const handleContactEntry = () => {
-        debugger
+    const handleContactEntry = (e) => {
+        e.preventDefault()
         const newContactNote = { ...contactNote }
         newContactNote.show = showId
         
 
         addContactNote(newContactNote)
-        .then(getContactNotes) 
+        
     }
 
 
@@ -43,27 +42,6 @@ export const ContactNoteForm = () => {
     }
 
 
-
-   
-
-
-    // useEffect(() => {
-    //     //get contactNotes
-    //     getContacts().then(() => {
-
-    //         //get contactNotes related to current show
-    //         let show_contactNote = contactNotes.filter(s => parseInt(s.show_id) === parseInt(showId) )
-            
-    //         .then(Show => {
-    //             if(Show?.date) {
-    //                 contactNotes
-                    
-    //                 } else {    
-                    
-    //                 }
-    //         })
-    //     })
-    // }, [show])
 
 
     //Return this HTML
