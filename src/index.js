@@ -5,11 +5,11 @@ import { TM } from './components/tm';
 import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <Router>
       <TM />
     </Router>
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );
 

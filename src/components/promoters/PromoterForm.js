@@ -121,7 +121,7 @@ export const PromoterForm = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="state">St: </label>
                         <input type="text" id="state" className="form-field" 
-                        placeholder="Promoter Time" value={promoter?.state}
+                        placeholder="St" value={promoter?.state}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>

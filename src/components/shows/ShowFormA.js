@@ -175,22 +175,7 @@ export const ShowFormA = () => {
                             onChange={handleControlledInputChange} />
                         </div>
                     </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="deposit_paid">Deposit Paid: </label>
-                            <input type="checkbox" id="deposit_paid" className="form-field"
-                            name="deposit_paid" checked={show.deposit_paid} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="checkbox">
-                        <div className="form-group">
-                            <label className="label" htmlFor="runner">Runner: </label>
-                            <input type="checkbox" id="runner" className="form-field"
-                            name="runner" checked={show.runner} 
-                            onChange={handleCheckboxChange}/>
-                        </div>
-                    </fieldset>
+                    
                 </div>
             </div>
             

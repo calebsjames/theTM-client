@@ -35,7 +35,7 @@ const eventHub = document.querySelector(".landing")
 
 
 export const Home = () => {
-    const { getShows, shows, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
+    const { getShows, getShowById, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
     // const { getUsers, users } = useContext(UserContext)
     const { getVenues, venue, updateVenue } = useContext(VenueContext)
     const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
@@ -107,11 +107,18 @@ export const Home = () => {
             promoter: null,
             venue: null
         };
+         
         addShow(newShow)
         .then(showid => {
             history.push(`/show/${showid}`)
 
-        }) 
+            // getShowById(showid)
+            // .then(s => {setShow(s)})
+        }
+        
+        )
+        .then(() => history.push(showId))
+        // .then(() => getShowById(showid))
     }
 
     

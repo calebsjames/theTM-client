@@ -11,12 +11,15 @@ export const ScheduleForm = () => {
     
     const { addSchedule, getSchedules, schedule, setSchedule } = useContext(ScheduleContext)
     const [ isLoading, setIsLoading ] = useState(true);
-    
+    const showId = useParams()
     
 
     const handleScheduleEntry = (e) => {
-    
+        // debugger
         e.preventDefault()
+        // schedule.show = showId
+        // setShow()
+        console.log(showId)
         addSchedule(schedule)
     }
 
@@ -31,6 +34,8 @@ export const ScheduleForm = () => {
         /* Set the property to the new value
         using object bracket notation. */
         newSchedule[event.target.id] = selectedVal
+        newSchedule.show = showId.showId
+        console.log(showId.showId)
         
         // update state
         setSchedule(newSchedule)   
@@ -66,6 +71,7 @@ export const ScheduleForm = () => {
                     </fieldset>
                     <button className="btn btn-primary"
                     // disabled={isLoading}
+
                     onClick={handleScheduleEntry}>
                     +</button>
                 </div>
