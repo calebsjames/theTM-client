@@ -52,7 +52,7 @@ export const ShowProvider = (props) => {
     });
 
     const getShows = () => {
-        return fetch("http://localhost:8000/shows", {
+        return fetch("https://the-tm-api.herokuapp.com/shows", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -62,7 +62,7 @@ export const ShowProvider = (props) => {
     }
 
     const addShow = showObj => {
-        return fetch("http://localhost:8000/shows", {
+        return fetch("https://the-tm-api.herokuapp.com/shows", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export const ShowProvider = (props) => {
 
     //function to get show by ID
     const getShowById = (id) => {
-        return fetch(`http://localhost:8000/shows/${id}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/shows/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -88,7 +88,7 @@ export const ShowProvider = (props) => {
 
     //function to delete a show
     const deleteShow = showId => {
-        return fetch(`http://localhost:8000/shows/${showId}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/shows/${showId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
@@ -98,7 +98,7 @@ export const ShowProvider = (props) => {
     }
 
     const updateShow = show => {
-        return fetch(`http://localhost:8000/shows/${show.id}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/shows/${show.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
