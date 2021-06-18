@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { PromoterContext } from "../promoters/PromoterProvider";
 import { ShowContext } from "../shows/ShowProvider";
-
+import "./Promoter.css"
 
 //export function to display form for new promoter
 export const PromoterForm = () => {
@@ -77,18 +77,19 @@ export const PromoterForm = () => {
         <article id="promoter_form_a">
         <form className="promoterForm">
             <h2 className="formTitle">Promoter Information</h2>
-            <button onClick={()=> handleDelete()}>
-                -
-            </button>
-                <div className="row">
+                <div className="flex">
                     <fieldset className="form">
                         <div className="form-group">
-                            <label className="label" htmlFor="name">Promoter: </label>
-                            <input type="text" id="name" className="form-field"
-                            autoFocus placeholder="Promoter" value={promoter?.name}
+                            <input type="text" id="promoterName" className="form-field"
+                            placeholder="Promoter" value={promoter?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
+                    <button onClick={()=> handleDelete()}>
+                        -
+                    </button>
+                </div>
+                <div>
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="company">Company: </label>
@@ -98,10 +99,10 @@ export const PromoterForm = () => {
                         </div>
                     </fieldset>
                     <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="address">Address</label>
-                            <input type="text" id="address" className="form-field"
-                            placeholder="Address" value={promoter?.address}
+                        <div className="form-group">    
+                            <textarea cols="50" rows="30" 
+                            id="promoterAddress" className="form-field"
+                            value={promoter?.address} placeholder="Address"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
@@ -139,7 +140,7 @@ export const PromoterForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="phone">Phone: </label>
-                            <input type="text" id="phone" className="form-field"
+                            <input type="text" id="promoterPhone" className="form-field"
                             placeholder="Phone" value={promoter?.phone}
                             onChange={handleControlledInputChange} />
                         </div>
@@ -165,17 +166,7 @@ export const PromoterForm = () => {
                     </fieldset>
                 </div>
 
-                <div className="row">
-                    <fieldset className="form">
-                        <div className="form-group">    
-                            <textarea cols="50" rows="10" 
-                            id="comments" className="form-field"
-                            value={promoter?.comments} placeholder="Notes"
-                            onChange={handleControlledInputChange}/>
-                        </div>
-                    </fieldset>
-                    
-                </div>
+              
                     
                 
             

@@ -98,7 +98,7 @@ export const VenueFormModal = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="name">Venue: </label>
                             <input type="text" id="name" className="form-field"
-                            autoFocus placeholder="Venue Name" value={venue?.name}
+                            placeholder="Venue Name" value={venue?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>

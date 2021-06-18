@@ -1,28 +1,28 @@
 #city {
     flex: 50%;
-    width: 50%;
+    width: 150px;
 }
 
 #state {
     flex: 15%;
-    width: 15%;
+    width: 30px;
 }
 
 #zip {
     flex: 30%;
-    width: 30%;
+    width: 45px;
 }
 
 #name {
-    width: 400px;
+    width: 310px;
 }
 
 #contact {
     width: 400px
 }
 
-#address {
-    width: 400px
+#venueAddress {
+    /* width: 400px */
 }
 
 #phone {
@@ -42,7 +42,7 @@
 }
 
 #merch_sales {
-    width: 100px
+    width: 90px
 }
 
 #merch_fee {

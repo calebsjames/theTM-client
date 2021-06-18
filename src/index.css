@@ -10,6 +10,7 @@ textarea {
 	font-family: "Comfortaa", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
+  resize: none;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -92,10 +93,18 @@ a:hover, a:active, a:focus {
   flex-direction: row;
 }
 
+.sb {
+  justify-content: space-between;
+}
+
 .detailbox {
   margin: 10px;
 }
 
 .label{
   margin: 10px;
+}
+
+#containerLeft{
+  margin: 0px 10px;
 }

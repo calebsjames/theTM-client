@@ -21,7 +21,7 @@ import { ScheduleListForm } from "./schedules/ScheduleListForm"
 import { ContactNoteForm } from "./contactNotes/ContactNotesForm"
 import { ContactNoteListForm } from "./contactNotes/ContactNotesListForm"
 import PromoterModal from "./promoters/PromoterModal"
-
+import {ShowCheckBoxes} from "./shows/ShowCheckBoxes"
 
 
 
@@ -35,7 +35,7 @@ const eventHub = document.querySelector(".landing")
 
 
 export const Home = () => {
-    const { getShows, getShowById, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
+    const { getShows, shows, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
     // const { getUsers, users } = useContext(UserContext)
     const { getVenues, venue, updateVenue } = useContext(VenueContext)
     const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
@@ -107,18 +107,11 @@ export const Home = () => {
             promoter: null,
             venue: null
         };
-         
         addShow(newShow)
         .then(showid => {
             history.push(`/show/${showid}`)
 
-            // getShowById(showid)
-            // .then(s => {setShow(s)})
-        }
-        
-        )
-        .then(() => history.push(showId))
-        // .then(() => getShowById(showid))
+        }) 
     }
 
     
@@ -158,11 +151,18 @@ export const Home = () => {
                 <div className="flex">
                     <div id="containerLeft">
                         <div id="detail_row" className="flex">
-                            <VenueForm />
-                            <ShowFormA />
+                            <div className="flex">   
+                                <VenueForm />
+                                <ShowFormA />
+                            </div>
+                            <div>
+                            <ShowFormB />
+                            </div>
+                            <div>
                             <PromoterForm />
+                            <ShowCheckBoxes />
+                            </div>
                         </div>
-                        <ShowFormB />
                         <div className="flex">
                             <HotelForm />
                             <RoutingForm />
@@ -186,6 +186,7 @@ export const Home = () => {
                         <PromoterModal />
                     </div>
                 </div>
+                
                 <button className="btn btn-primary"
                 // disabled={isLoading}
                 onClick={handleClickSaveForm}>

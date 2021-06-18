@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { HotelContext } from "../hotels/HotelProvider";
 import { ShowContext } from "../shows/ShowProvider";
-
+import "./Hotel.css"
 
 //export function to display form for new hotel
 export const HotelForm = () => {
@@ -63,15 +63,15 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="name">Hotel: </label>
-                            <input type="text" id="name" className="form-field"
+                            <input type="text" id="hotelName" className="form-field"
                              placeholder="Hotel" value={hotel?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
                     <fieldset className="form">
                         <div className="form-group">    
-                            <textarea cols="50" rows="10" 
-                            id="address" className="form-field"
+                            <textarea cols="50" rows="30" 
+                            id="hotelAddress" className="form-field"
                             value={hotel?.address} placeholder="Address"
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -82,7 +82,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="phone">Phone: </label>
-                            <input type="text" id="phone" className="form-field"
+                            <input type="text" id="hotelPhone" className="form-field"
                             placeholder="Phone" value={hotel?.phone}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -100,16 +100,7 @@ export const HotelForm = () => {
                 
                 </div>
 
-                <div className="column">
-                    <fieldset className="form">
-                        <div className="form-group">    
-                            <textarea cols="50" rows="10" 
-                            id="notes" className="form-field"
-                            value={hotel?.notes} placeholder="Notes"
-                            onChange={handleControlledInputChange}/>
-                        </div>
-                    </fieldset>
-            </div>    
+                
             
             
 

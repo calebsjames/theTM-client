@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react"
 import { useHistory, useParams } from 'react-router-dom';
 import { ShowContext } from "./ShowProvider";
 import "../App.css"
+import "./Show.css"
+
 
 //export function to display form for new show
 export const RoutingForm = () => {
@@ -61,42 +63,34 @@ export const RoutingForm = () => {
             <h2 className="formTitle">Routing</h2>
 
             <div className="flex">
-                <div className="row">
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="routing">Routing: </label>
-                            <input type="text" id="routing" className="form-field"
-                            autoFocus placeholder="Routing" value={show.routing}
-                            onChange={handleControlledInputChange}/>
-                        </div>
-                    </fieldset>
-                    <div className="flex">
-                        
-                        <div className="column">
-                            <fieldset className="form">
-                                <div className="form-group">
-                                    <label className="label" htmlFor="miles_to_drive">Miles: </label>
-                                    <input type="text" id="miles_to_drive" className="form-field"
-                                    placeholder="Miles" value={show.miles_to_drive}
-                                    onChange={handleControlledInputChange}/>
-                                </div>
-                            </fieldset>
-                                   
-                        <div className="column">
-                            <fieldset className="form">
-                                <div className="form-group">    
-                                    <textarea cols="50" rows="10" 
-                                    id="routing_notes" className="form-field"
-                                    value={show.routing_notes} placeholder="Notes"
-                                    onChange={handleControlledInputChange}/>
-                                </div>
-                            </fieldset>
-
-                        </div>
+                
+                <fieldset className="form">
+                    <div className="form-group">
+                        <label className="label" htmlFor="routing">Routing: </label>
+                        <input type="text" id="routing" className="form-field"
+                        placeholder="Routing" value={show.routing}
+                        onChange={handleControlledInputChange}/>
                     </div>
-                </div>
+                </fieldset>
+                <fieldset className="form">
+                    <div className="form-group">
+                        <label className="label" htmlFor="miles_to_drive">Miles: </label>
+                        <input type="text" id="miles_to_drive" className="form-field"
+                        placeholder="Miles" value={show.miles_to_drive}
+                        onChange={handleControlledInputChange}/>
+                    </div>
+                </fieldset>
+                    
             </div>
-        </div>
+                                       
+            <fieldset className="form">
+                <div className="form-group">    
+                    <textarea cols="50" rows="10" 
+                    id="routing_notes" className="form-field"
+                    value={show.routing_notes} placeholder="Notes"
+                    onChange={handleControlledInputChange}/>
+                </div>
+            </fieldset>
 
         </form>
         </article>

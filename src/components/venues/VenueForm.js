@@ -104,8 +104,8 @@ export const VenueForm = () => {
                         <fieldset className="form">
                             <div className="form-group">
                                 
-                                <input type="text" id="name" className="form-field"
-                                autoFocus placeholder="Venue Name" value={venue?.name}
+                                <input type="text" id="venueName" className="form-field"
+                                placeholder="Venue Name" value={venue?.name}
                                 onChange={handleControlledInputChange}/>
                             </div>
                         </fieldset>
@@ -123,8 +123,8 @@ export const VenueForm = () => {
                     </fieldset>
                     <fieldset className="form">
                         <div className="form-group">
-                            <label className="label" htmlFor="address">Address</label>
-                            <input type="text" id="address" className="form-field"
+                            <label className="label" htmlFor="address">Address: </label>
+                            <input type="text" id="venueAddress" className="form-field"
                             placeholder="Address" value={venue?.address}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -163,7 +163,7 @@ export const VenueForm = () => {
                 <fieldset className="form">
                     <div className="form-group">
                         <label className="label" htmlFor="phone">Phone: </label>
-                        <input type="text" id="phone" className="form-field"
+                        <input type="text" id="promoterPhone" className="form-field"
                         placeholder="Phone" value={venue?.phone}
                         onChange={handleControlledInputChange} />
                     </div>
