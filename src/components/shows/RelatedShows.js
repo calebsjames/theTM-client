@@ -25,7 +25,9 @@ export const RelatedShowsList = () => {
 
     // const ps = new PerfectScrollbar('#scroll')
     const currentdate = new Date().toISOString().slice(0, 10)
-    const showsFiltered = shows.filter(s => s.venue?.id === show?.venue?.id) 
+    const notNullVenues = shows.filter(s => s.venue?.id != null)
+    
+    const showsFiltered = notNullVenues.filter(s => s.venue?.id === show?.venue?.id) 
     
     
     const showsSorted = showsFiltered?.sort(
