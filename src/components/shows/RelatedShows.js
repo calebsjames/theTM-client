@@ -1,24 +1,32 @@
 import React, { useContext, useEffect } from "react"
+import { useParams } from "react-router-dom"
 import { UserContext } from "../auth/AuthProvider"
 import { ShowContext } from "../shows/ShowProvider"
-import { PreviousShows } from "./PreviousShows"
-// import PerfectScrollbar from 'perfect-scrollbar'
+import { PreviousShows } from "../asides/PreviousShows"
 
 
-export const FutureShowsList = () => {
+export const RelatedShowsList = () => {
     
     // This state changes when `getShows()` is invoked below
-    const { shows, getShows } = useContext(ShowContext)
-    // const { user } = useContext(UserContext)
+    const { shows, getShows, setShow, show, getShowById } = useContext(ShowContext)
+    const showId = useParams()
 
     useEffect(() => {
-        getShows()
-  }, [])
+        
+            getShowById(showId.showId)
+            //then setShow to that found Show
+            .then(Show => {
+                setShow(Show)                
+                // setIsLoading(false)
+            })
+        }
+    , [showId])
 
 
     // const ps = new PerfectScrollbar('#scroll')
     const currentdate = new Date().toISOString().slice(0, 10)
-    const showsFiltered = shows.filter(show => show.date >= currentdate) 
+    const showsFiltered = shows.filter(s => s.venue?.id === show?.venue?.id) 
+    
     
     const showsSorted = showsFiltered?.sort(
         
@@ -28,8 +36,8 @@ export const FutureShowsList = () => {
 
   return (
     <>         
-        <article className="previousShows">
-            <h2>Future Shows</h2>
+        <article className="relatedShows">
+            <h2>Related Shows</h2>
             
             {
                 showsSorted?.map(showObject => {

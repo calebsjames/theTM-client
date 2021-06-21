@@ -15,7 +15,7 @@ export const PreviousShowsList = () => {
 
 //   const userShows = shows.filter(insp => parseInt(insp.userId) === parseInt(localStorage.getItem("tm_token")))
     const scrollDiv = document.getElementById("scroll");
-    scrollDiv.scrollTop = scrollDiv.scrollHeight;
+    // scrollDiv.scrollTop = scrollDiv.scrollHeight;
     
     const currentdate = new Date().toISOString().slice(0, 10)
     const showsFiltered = shows.filter(show => show.date < currentdate)
@@ -31,6 +31,7 @@ export const PreviousShowsList = () => {
         <article className="previousShows">
             <h2>Previous Shows</h2>
             <div id="scroll">
+
             {
                 showsSorted?.map(showObject => {
                     return <PreviousShows key={showObject.id} showInstance={showObject} 

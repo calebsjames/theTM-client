@@ -22,6 +22,7 @@ import { ContactNoteForm } from "./contactNotes/ContactNotesForm"
 import { ContactNoteListForm } from "./contactNotes/ContactNotesListForm"
 import PromoterModal from "./promoters/PromoterModal"
 import {ShowCheckBoxes} from "./shows/ShowCheckBoxes"
+import { RelatedShowsList } from "./shows/RelatedShows"
 
 
 
@@ -166,6 +167,7 @@ export const Home = () => {
                             </div>
                         <div className="flex sb">
                             <HotelForm />
+                            <RelatedShowsList />
                             <RoutingForm />
                         </div>
                         <div className="flex sb">
