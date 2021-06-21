@@ -155,27 +155,27 @@ export const Home = () => {
                                 <VenueForm />
                                 <ShowFormA />
                             </div>
-                            <div>
-                            <ShowFormB />
-                            </div>
+                            
                             <div>
                             <PromoterForm />
                             <ShowCheckBoxes />
                             </div>
                         </div>
-                        <div className="flex">
+                            <div>
+                            <ShowFormB />
+                            </div>
+                        <div className="flex sb">
                             <HotelForm />
                             <RoutingForm />
                         </div>
-                        <div className="flex">
+                        <div className="flex sb">
                             <div> 
                                 <ScheduleForm /> <br></br>
                                 <ScheduleListForm />
                             </div>
                             <div> 
                                 <ContactNoteForm /> <br></br>
-                                <ContactNoteListForm
- />
+                                <ContactNoteListForm />
                             </div>
                         </div>
                     </div>

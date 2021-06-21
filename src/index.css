@@ -97,6 +97,14 @@ a:hover, a:active, a:focus {
   justify-content: space-between;
 }
 
+.se {
+  justify-content: space-evenly;
+}
+
+.sa {
+  justify-content: space-around;
+}
+
 .detailbox {
   margin: 10px;
 }
@@ -107,4 +115,10 @@ a:hover, a:active, a:focus {
 
 #containerLeft{
   margin: 0px 10px;
+}
+
+#scroll {
+  position: relative;
+  height: 207px;
+  overflow-y: scroll
 }

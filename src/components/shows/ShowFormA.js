@@ -30,25 +30,7 @@ export const ShowFormA = () => {
         
         // update state
         setShow(newShow)   
-    }
-
-    
-    //handle input changes for checkboxes
-    const handleCheckboxChange = (event) => {
-        //make a copy of show
-        const newShow = { ...show }
-
-        //get boolean of whether box is checked
-        let selectedVal = event.target.checked
-
-        //Set the property to the new boolean value of checked
-        newShow[event.target.id] = selectedVal
-        // update state
-        setShow(newShow)   
-    }
-
-
-    
+    }    
 
 
     useEffect(() => {
