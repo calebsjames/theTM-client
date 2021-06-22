@@ -28,16 +28,16 @@ export const FutureShowsList = () => {
 
   return (
     <>         
-        <article className="previousShows">
+        <article className="futureShows">
             <h2>Future Shows</h2>
-            
+            <div className="scrollFuture">
             {
                 showsSorted?.map(showObject => {
                     return <PreviousShows key={showObject.id} showInstance={showObject} 
                     />
                 })
             }
-            
+            </div>
         </article>
     </>
 )

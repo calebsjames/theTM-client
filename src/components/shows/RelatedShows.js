@@ -33,7 +33,7 @@ export const RelatedShowsList = () => {
     const showsSorted = showsFiltered?.sort(
         
     (currentShow, nextShow) =>
-        Date.parse(currentShow.date) - Date.parse(nextShow.date)
+    Date.parse(nextShow.date) - Date.parse(currentShow.date)
     )
 
   return (

@@ -37,7 +37,7 @@ export const Venue = ({ venueInstance }) => {
     return(<section className="venue">
         
         <button id={`${venueInstance?.name}`} onClick={handleVenueChoice}> 
-        { venueInstance?.name }
+        { venueInstance?.name }    { venueInstance?.city } { venueInstance?.state }
         </button>
         
         

@@ -30,7 +30,7 @@ export const PreviousShowsList = () => {
     <>         
         <article className="previousShows">
             <h2>Previous Shows</h2>
-            <div id="scroll">
+            <div className="scrollPrevious">
 
             {
                 showsSorted?.map(showObject => {

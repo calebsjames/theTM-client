@@ -47,9 +47,7 @@ export const VenueForm = () => {
         }   
     }
 
-    const handleDelete = () => {
-        deleteVenue(show?.venue?.id)
-    }
+
 
     
 
@@ -109,9 +107,7 @@ export const VenueForm = () => {
                                 onChange={handleControlledInputChange}/>
                             </div>
                         </fieldset>
-                        <button onClick={()=> handleDelete()}>
-                            -
-                        </button>
+                        
                     </div>
                     <fieldset className="form">
                         <div className="form-group">

@@ -110,15 +110,59 @@ a:hover, a:active, a:focus {
 }
 
 .label{
-  margin: 10px;
+  margin: 5px 10px 0px !important; 
 }
 
 #containerLeft{
   margin: 0px 10px;
 }
 
-#scroll {
+.scrollPrevious {
   position: relative;
   height: 207px;
-  overflow-y: scroll
+  overflow-y: scroll;
+  padding: 0px 15px;
+  width: 350px;
+}
+.scrollFuture {
+  position: relative;
+  height: 600px;
+  overflow-y: scroll;
+  padding: 0px 15px;
+  width: 350px;
+}
+
+.box{
+  border: 2px solid #305A72;
+  padding: 5px;
+	margin: 10px auto;
+	/* box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35); */
+	border-radius: 10px;
+}
+
+.promoters {
+  margin: 5px;
+}
+
+.venues {
+  margin: 5px;
+  width: 300px;
+  position: relative;
+  height: 550px;
+  overflow-y: scroll;
+  padding: 0px 15px;
+}
+
+.venue {
+  margin: 5px 0px; 
+  padding: 1px 0px;
+}
+
+.promoter {
+  margin: 5px 0px; 
+  padding: 1px 0px;
+}
+
+.search {
+  margin: 10px 20px;
 }

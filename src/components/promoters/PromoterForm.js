@@ -35,10 +35,6 @@ export const PromoterForm = () => {
     }
 
 
-    const handleDelete = () => {
-        deletePromoter(show?.promoter?.id)
-    }
-
 
     useEffect(() => {
 
@@ -85,9 +81,6 @@ export const PromoterForm = () => {
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
-                    <button onClick={()=> handleDelete()}>
-                        -
-                    </button>
                 </div>
                 <div>
                     <fieldset className="form">

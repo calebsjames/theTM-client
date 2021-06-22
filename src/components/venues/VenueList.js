@@ -42,7 +42,7 @@ export const VenueList = () => {
             <div className="venueNav">
             <VenueSearch />
             </div>
-            <div className="venues">
+            <div className="venues scroll">
                 {
                   
                   filteredVenues.map(venueObject => {
