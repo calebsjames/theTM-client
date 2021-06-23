@@ -28,7 +28,7 @@ The TM is an application designed to help tour managers keep track of relavent d
 
 [View in dbdiagram](https://dbdiagram.io/d/609eae23b29a09603d14e96d)
 
-[View Wirefram in Figma](https://www.figma.com/file/A41DJnuQO4mRJpJatT67Bm/Untitled?node-id=7%3A549)
+[View wirefram in Figma](https://www.figma.com/file/A41DJnuQO4mRJpJatT67Bm/Untitled?node-id=7%3A549)
 
 ---
 
