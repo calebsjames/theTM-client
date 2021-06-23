@@ -6,7 +6,7 @@ The TM is an application designed to help tour managers keep track of relavent d
 
 ---
 ![Client](https://img.shields.io/badge/Client%20Side-HTML%2C%20CSS%2C%20React%2C%20React--Bootstrap-blue)
-![Server](https://img.shields.io/badge/Server%20Side-Python%2FDjango%2C%20Django--safedelete-blue)
+![Server](https://img.shields.io/badge/Server%20Side-Python%2FDjango-blue)
 
 ## Features
 * Can register users and present unique data
