@@ -71,12 +71,12 @@ export const ShowFormB = () => {
     return (
         <>
         <article id="showFormB">
-            <form className="showForm">
+            <form id="support">
                 
                 <fieldset className="form">
                     <div className="form-group">
                         <label className="label" htmlFor="support">Support: </label>
-                        <input type="text" id="support" className="form-field"
+                        <input type="text" id="support"  className="form-field"
                         placeholder="Support" value={show.support}
                         onChange={handleControlledInputChange}/>
                     </div>

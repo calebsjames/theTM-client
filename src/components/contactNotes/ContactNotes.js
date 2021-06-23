@@ -7,26 +7,11 @@ import { ContactNoteContext } from "../contactNotes/ContactNoteProvider";
 
 export const ContactNote = ({contactNoteInstance}) => {
     
-    const { contactNotes, addContactNote, getContactNoteById, updateContactNote, getContactNotes, contactNote, setContactNote } = useContext(ContactNoteContext)
-   
+    const { deleteContactNote } = useContext(ContactNoteContext)
 
 
-    //when something changes, save it with setContactNote
-    const handleControlledInputChange = (event) => {
-        //make a new copy of contactNote
-        const newContactNote = { ...contactNote }
-        //the value of the event
-        let selectedVal = event.target.value
-        // Set the property to the new value 
-        newContactNote[event.target.id] = selectedVal       
-        // update state
-        setContactNote(newContactNote)   
-    }
-
-
-
-    const handleContactNoteEntry = () => {  
-        updateContactNote(contactNote)
+    const handleDeleteContactNote = () => {  
+        deleteContactNote(contactNoteInstance?.id)
     }
 
     
@@ -37,12 +22,21 @@ export const ContactNote = ({contactNoteInstance}) => {
         <form className="contactNoteForm">
 
             <div className="flex">
-            {contactNoteInstance?.date}  {contactNoteInstance?.method}  {contactNoteInstance?.text}
+                <div className="contactNote">
+                    {contactNoteInstance?.date}
+                </div>
+                <div className="contactNote">
+                    {contactNoteInstance?.method}
+                </div>
+                <div className="contactNote">
+                    {contactNoteInstance?.text}
+                </div>
+                
                 
 
                 <button className="btn btn-primary"
-                onClick={handleContactNoteEntry}>
-                +</button>
+                onClick={handleDeleteContactNote}>
+                -</button>
 
             </div>
 

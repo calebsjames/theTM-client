@@ -63,7 +63,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="name">Hotel: </label>
-                            <input type="text" id="hotelName" className="form-field"
+                            <input type="text" id="name" className="form-field lc1"
                              placeholder="Hotel" value={hotel?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -71,7 +71,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="30" 
-                            id="hotelAddress" className="form-field"
+                            id="address" className="form-field lc1"
                             value={hotel?.address} placeholder="Address"
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -82,7 +82,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="phone">Phone: </label>
-                            <input type="text" id="hotelPhone" className="form-field"
+                            <input type="text" id="phone" className="form-field lc2"
                             placeholder="Phone" value={hotel?.phone}
                             onChange={handleControlledInputChange}/>
                         </div>
@@ -90,7 +90,7 @@ export const HotelForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="10" 
-                            id="confirmation" className="form-field"
+                            id="confirmation" className="form-field lc2"
                             value={hotel?.confirmation} placeholder="Confirmation numbers"
                             onChange={handleControlledInputChange}/>
                         </div>

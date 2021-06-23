@@ -23,7 +23,7 @@ import { ContactNoteListForm } from "./contactNotes/ContactNotesListForm"
 import PromoterModal from "./promoters/PromoterModal"
 import {ShowCheckBoxes} from "./shows/ShowCheckBoxes"
 import { RelatedShowsList } from "./shows/RelatedShows"
-import { DropDownNav } from "./Dropdown"
+import { DropDownNav } from "./dropdown/Dropdown"
 
 
 

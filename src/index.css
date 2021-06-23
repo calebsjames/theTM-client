@@ -122,14 +122,23 @@ a:hover, a:active, a:focus {
   height: 207px;
   overflow-y: scroll;
   padding: 0px 15px;
-  width: 350px;
+  width: 400px;
 }
+
 .scrollFuture {
   position: relative;
   height: 600px;
   overflow-y: scroll;
   padding: 0px 15px;
-  width: 350px;
+  width: 400px;
+}
+
+.scrollRelated {
+  position: relative;
+  height: 120px;
+  overflow-y: scroll;
+  padding: 0px 15px;
+  width: 400px;
 }
 
 .box{
@@ -165,4 +174,25 @@ a:hover, a:active, a:focus {
 
 .search {
   margin: 10px 20px;
+}
+
+.contactNote {
+  width: 179px;
+  margin: 10px;
+}
+
+.relatedShow{
+  margin: 5px 15px 5px 0px;
+  width: max-content
+}
+
+#venueName {
+  width: 240px;
+}
+#venueLocation {
+  width: 200px;
+}
+
+.showDate {
+  width: 160px !important;
 }

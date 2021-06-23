@@ -1,4 +1,20 @@
 #address {
-    width: 250px;
-    height: 65px
+    width: 390px;
+
+}
+
+#promoterName {
+    width: 390px;
+}
+
+#promoterAddress {
+    width: 390px;
+}
+
+#promoterEmail {
+    width: 390px;
+}
+
+#company {
+    width: 390px;
 }

@@ -12,7 +12,7 @@ export const VenueProvider = (props) => {
     const [venue, setVenue] = useState({
         address: "",
         capacity: 0,
-        cell_phone: "",
+        cell: "",
         city: "",
         contact: "",
         email: "",

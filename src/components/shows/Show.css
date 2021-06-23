@@ -10,9 +10,6 @@
     width: 400px;
 }
 
-#support {
-    width: 94%;
-}
 
 #artist_form {
     width: 85%;
@@ -63,4 +60,14 @@
 #routing_notes {
     width: 287px;
     height: 65px;
+}
+
+#comments {
+    width: 310px;
+    height: 87px;
+}
+
+#support {
+    width: 780px !important;
+    /* margin-left: 10px !important; */
 }

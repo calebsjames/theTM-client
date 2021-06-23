@@ -41,6 +41,7 @@ export const VenueFormModal = () => {
         
         // update state
         setVenue(newVenue)
+        console.log(venue)
         
     }
 
@@ -65,7 +66,7 @@ export const VenueFormModal = () => {
                     setVenue({
                         address: "",
                         capacity: 0,
-                        cell_phone: "",
+                        cell: "",
                         city: "",
                         contact: "",
                         email: "",
@@ -133,7 +134,7 @@ export const VenueFormModal = () => {
                     <div className="form-group">
                         <label className="label" htmlFor="state">St: </label>
                         <input type="text" id="state" className="form-field" 
-                        placeholder="Venue Time" value={venue?.state}
+                        placeholder="St" value={venue?.state}
                         onChange={handleControlledInputChange}/>
                     </div>
                 </fieldset>

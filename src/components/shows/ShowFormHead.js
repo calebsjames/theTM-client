@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { ShowContext } from "../shows/ShowProvider";
 import "./ShowFormHead.css"
 import "../App.css"
-import { DropDownNav } from "../Dropdown";
+import { DropDownNav } from "../dropdown/Dropdown";
 
 
 //export function to display form for new show

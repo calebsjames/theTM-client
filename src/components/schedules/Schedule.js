@@ -27,7 +27,7 @@ export const Schedule = ({scheduleInstance}) => {
 
     const handleDeleteEntry = () => {  
         deleteSchedule(scheduleInstance.id)
-        .then(getSchedules) 
+        // .then(getSchedules) 
     }
 
 

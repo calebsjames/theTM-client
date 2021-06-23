@@ -94,14 +94,14 @@ export const PromoterForm = () => {
                     <fieldset className="form">
                         <div className="form-group">    
                             <textarea cols="50" rows="30" 
-                            id="promoterAddress" className="form-field"
+                            id="address" className="form-field"
                             value={promoter?.address} placeholder="Address"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
                 </div>
 
-            <div className="flex">
+            <div className="flex sb">
                 
                 <fieldset className="form">
                     <div className="form-group">
@@ -129,11 +129,11 @@ export const PromoterForm = () => {
                 </fieldset>
             </div>    
 
-                <div className="flex">
+                <div className="flex sb">
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="phone">Phone: </label>
-                            <input type="text" id="promoterPhone" className="form-field"
+                            <input type="text" id="phone" className="form-field"
                             placeholder="Phone" value={promoter?.phone}
                             onChange={handleControlledInputChange} />
                         </div>

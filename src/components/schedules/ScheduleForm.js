@@ -15,7 +15,7 @@ export const ScheduleForm = () => {
     
 
     const handleScheduleEntry = (e) => {
-        // debugger
+        
         e.preventDefault()
         
         console.log(showId)

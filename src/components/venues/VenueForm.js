@@ -68,7 +68,7 @@ export const VenueForm = () => {
                     setVenue({
                         address: "",
                         capacity: 0,
-                        cell_phone: "",
+                        cell: "",
                         city: "",
                         contact: "",
                         email: "",
@@ -120,14 +120,14 @@ export const VenueForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="address">Address: </label>
-                            <input type="text" id="venueAddress" className="form-field"
+                            <input type="text" id="address" className="form-field"
                             placeholder="Address" value={venue?.address}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
                 </div>
 
-            <div className="flex">
+            <div className="flex sb">
                 <fieldset className="form">
                     <div className="form-group">
                         <label className="label" htmlFor="city">City: </label>
@@ -155,20 +155,20 @@ export const VenueForm = () => {
             </div>
 
                 
-            <div className="flex">
+            <div className="flex sb">
                 <fieldset className="form">
                     <div className="form-group">
                         <label className="label" htmlFor="phone">Phone: </label>
-                        <input type="text" id="promoterPhone" className="form-field"
+                        <input type="text" id="phone" className="form-field phone"
                         placeholder="Phone" value={venue?.phone}
                         onChange={handleControlledInputChange} />
                     </div>
                 </fieldset>
                 <fieldset className="form">
                     <div className="form-group">
-                        <label className="label" htmlFor="cell_phone">Cell: </label>
-                        <input type="text" id="cell_phone" className="form-field"
-                        placeholder="Cell" value={venue?.cell_phone}
+                        <label className="label" htmlFor="cell">Cell: </label>
+                        <input type="text" id="cell" className="form-field phone"
+                        placeholder="Cell" value={venue?.cell}
                         onChange={handleControlledInputChange} />
                     </div>
                 </fieldset>

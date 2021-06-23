@@ -9,11 +9,22 @@ export const PreviousShows = ({showInstance}) => {
 
 
     return(
-    <div className="showNav" id={`show--${showInstance?.id}`}>
-        <Link to={`/show/${showInstance?.id}`}>
-        {showInstance?.date}  {showInstance?.venue?.name}  {showInstance?.venue?.city} {showInstance?.venue?.state}
-        </Link>    
-    </div> 
+        <>
+        <div className="flex">
+            <div className="showNav relatedShow showDate" id={`show--${showInstance?.id}`}>
+                <Link to={`/show/${showInstance?.id}`}>
+                {showInstance?.date} 
+                </Link>    
+            </div>
+            <div className="relatedShow" id="venueName">
+                {showInstance?.venue?.name}
+            </div>
+            <div className="relatedShow" id="venueLocation">
+            {showInstance?.venue?.city} {showInstance?.venue?.state}
+            </div> 
+        </div>
+        </>
+
     )}
 
 

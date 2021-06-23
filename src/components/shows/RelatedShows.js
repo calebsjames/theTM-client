@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { UserContext } from "../auth/AuthProvider"
 import { ShowContext } from "../shows/ShowProvider"
-import { PreviousShows } from "../asides/PreviousShows"
+import { AllRelatedShows } from "../shows/RelatedShowsList"
 
 
 export const RelatedShowsList = () => {
@@ -38,16 +38,16 @@ export const RelatedShowsList = () => {
 
   return (
     <>         
-        <article className="relatedShows">
-            <h2>Related Shows</h2>
-            
+            <article className="relatedShows">
+        <h2>Related Shows</h2>
+            <div className="scrollRelated">
             {
                 showsSorted?.map(showObject => {
-                    return <PreviousShows key={showObject.id} showInstance={showObject} 
+                    return <AllRelatedShows key={showObject.id} showInstance={showObject} 
                     />
                 })
             }
-            
+            </div>
         </article>
     </>
 )

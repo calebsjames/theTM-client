@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./Dropdown.css"
-import { HotelContext } from "./hotels/HotelProvider";
-import { PromoterContext } from "./promoters/PromoterProvider";
-import { ShowContext } from "./shows/ShowProvider";
-import { VenueContext } from "./venues/VenueProvider";
+import { HotelContext } from "../hotels/HotelProvider";
+import { PromoterContext } from "../promoters/PromoterProvider";
+import { ShowContext } from "../shows/ShowProvider";
+import { VenueContext } from "../venues/VenueProvider";
+import { Button } from "bootstrap"
 
 
 export const DropDownNav = () => {
@@ -12,8 +13,8 @@ export const DropDownNav = () => {
     const [isActive, setIsActive] = useState(false);
     const Click = () => setIsActive(!isActive);
     const history = useHistory()
-    const { addShow, updateShow, show, getShows } = useContext(ShowContext)
-    const { venue, updateVenue, deleteVenue, getVenues } = useContext(VenueContext)
+    const { addShow, updateShow, show, getShows, deleteShow } = useContext(ShowContext)
+    const { venue, updateVenue, deleteVenue, getVenues, setVenue } = useContext(VenueContext)
     const { hotel, updateHotel } = useContext(HotelContext)
     const { promoter, updatePromoter, deletePromoter } = useContext(PromoterContext)
     const currentDate = new Date().toISOString().slice(0, 10)
@@ -75,6 +76,7 @@ export const DropDownNav = () => {
             history.push(`/show/${showid}`)
 
         }) 
+        Click()
     }
 
 
@@ -83,6 +85,7 @@ export const DropDownNav = () => {
 
         event.preventDefault()
         updateShow(show)
+        
         if (show.venue?.id) {   
             updateVenue(venue)
         } 
@@ -94,21 +97,31 @@ export const DropDownNav = () => {
         if (show?.hotel?.id) {
             updateHotel(hotel)
         } 
+        Click()
         
     }
 
 
 
+    const handleDeleteShow = () => {
+        
+        deleteShow(showId.showId)
+        history.go(0)
+        Click()
+    }
+
     const handleDeleteVenue = () => {
-        debugger
+        
         deleteVenue(show?.venue?.id)
-        .then(history.push (`/show/${showId.showId}`))
+        history.go(0)
+        Click()
     }
 
 
     const handleDeletePromoter = () => {
         deletePromoter(show?.promoter?.id)
-        .then(history.push (`/show/${showId.showId}`))
+        history.go(0)
+        Click()
     }
 
 
@@ -122,7 +135,7 @@ export const DropDownNav = () => {
 
     return (
       <div className="menu-container">
-        <button onClick={Click} className="menu-trigger">
+        <button onClick={Click} className="menu-trigger btn">
           <span>Menu</span>
           
         </button>
@@ -131,6 +144,7 @@ export const DropDownNav = () => {
             
             <li className="ddlink" onClick={handleClickSaveForm}>Save </li>
             <li className="ddlink" onClick={handleNewShow}>New Show </li>
+            <li className="ddlink" onClick={handleDeleteShow}>Delete Show </li>
             <li className="ddlink" onClick={handleDeleteVenue}>Delete Venue </li>
             <li className="ddlink" onClick={handleDeletePromoter}>Delete Promoter </li>
             <li className="ddlink" onClick={handleLogout}>Log Out </li>
