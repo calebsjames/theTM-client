@@ -30,25 +30,7 @@ export const ShowFormA = () => {
         
         // update state
         setShow(newShow)   
-    }
-
-    
-    //handle input changes for checkboxes
-    const handleCheckboxChange = (event) => {
-        //make a copy of show
-        const newShow = { ...show }
-
-        //get boolean of whether box is checked
-        let selectedVal = event.target.checked
-
-        //Set the property to the new boolean value of checked
-        newShow[event.target.id] = selectedVal
-        // update state
-        setShow(newShow)   
-    }
-
-
-    
+    }    
 
 
     useEffect(() => {
@@ -75,20 +57,39 @@ export const ShowFormA = () => {
                 <div className="form-group">
                     <label className="label" htmlFor="terms">Terms: </label>
                     <input type="text" id="terms" className="form-field"
-                    autoFocus placeholder="Terms" value={show.terms}
+                    placeholder="Terms" value={show.terms}
                     onChange={handleControlledInputChange}/>
                 </div>
             </fieldset>
-            <div className="flex">
-                <div className="column">
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="load_in">Load-in: </label>
-                            <input type="time" id="load_in" className="form-field column1"
-                            placeholder="Load-in" value={show.load_in}
-                            onChange={handleControlledInputChange}/>
-                        </div>
-                    </fieldset>
+            <div className="flex sb">
+                
+                <fieldset className="form">
+                    <div className="form-group">
+                        <label className="label" htmlFor="load_in">Load-in: </label>
+                        <input type="time" id="load_in" className="form-field column1"
+                        placeholder="Load-in" value={show.load_in}
+                        onChange={handleControlledInputChange}/>
+                    </div>
+                </fieldset>
+                <fieldset className="form">
+                    <div className="form-group">
+                        <label className="label" htmlFor="door_price">Door Price: </label>
+                        <input type="text" id="door_price" className="form-field"
+                        placeholder="Door Price" value={show.door_price}
+                        onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+                <fieldset className="form">
+                    <div className="form-group">
+                        <label className="label" htmlFor="deposit">Deposit: </label>
+                        <input type="text" id="deposit" className="form-field"
+                        placeholder="Deposit" value={show.deposit}
+                        onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+            </div>
+            <div className="flex sb">
+
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="sound_check">Sound Check</label>
@@ -105,80 +106,80 @@ export const ShowFormA = () => {
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="show_time">Show Time: </label>
-                            <input type="time" id="show_time" className="form-field column1" 
-                            placeholder="Show Time" value={show.show_time}
-                            onChange={handleControlledInputChange}/>
-                        </div>
-                    </fieldset>
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="show_length">Set Length: </label>
-                            <input type="text" id="show_length" className="form-field column1" 
-                            placeholder="Set Length" value={show.show_length}
-                            onChange={handleControlledInputChange}/>
-                        </div>
-                    </fieldset>
-                    {/* Change to select */}
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="public_private">Public / Private: </label>
-                            <input type="text" id="public_private" className="form-field column1"
-                            placeholder="Public / Private" value={show.public_private}
-                            onChange={handleControlledInputChange} />
-                        </div>
-                    </fieldset>
-                </div>
+            </div>
 
-                <div className="column">
-                    <fieldset className="form">
-                        <div className="form-group">    
-                            <label className="label" htmlFor="weather">Weather: </label>
-                            <textarea cols="25" rows="10" 
-                            id="weather" className="form-field"
-                            value={show.weather} placeholder="Weather"
-                            onChange={handleControlledInputChange}/>
+                    
+                        <div className="flex sb">
+                            <fieldset className="form">
+                                <div className="form-group">
+                                    <label className="label" htmlFor="show_time">Show Time: </label>
+                                    <input type="time" id="show_time" className="form-field column1" 
+                                    placeholder="Show Time" value={show.show_time}
+                                    onChange={handleControlledInputChange}/>
+                                </div>
+                            </fieldset>
+                            <fieldset className="form">
+                                <div className="form-group">
+                                    <label className="label" htmlFor="show_length">Set Length: </label>
+                                    <input type="text" id="show_length" className="form-field column1" 
+                                    placeholder="Set Length" value={show.show_length}
+                                    onChange={handleControlledInputChange}/>
+                                </div>
+                            </fieldset>
+                        </div>    
+                        <div className="flex sb">    
+                            {/* Change to select */}
+                            <fieldset className="form">
+                                <div className="form-group">
+                                    <label className="label" htmlFor="public_private">Public / Private: </label>
+                                    <input type="text" id="public_private" className="form-field column1"
+                                    placeholder="Public / Private" value={show.public_private}
+                                    onChange={handleControlledInputChange} />
+                                </div>
+                            </fieldset>
+                            <fieldset className="form">
+                                <div className="form-group">
+                                    <label className="label" htmlFor="billing">Billing: </label>
+                                    <input type="text" id="billing" className="form-field"
+                                    placeholder="Billing" value={show.billing}
+                                    onChange={handleControlledInputChange} />
+                                </div>
+                            </fieldset>
+                            <fieldset className="form">
+                                <div className="form-group">
+                                    <label className="label" htmlFor="ages">Ages: </label>
+                                    <input type="text" id="ages" className="form-field"
+                                    placeholder="Ages" value={show.ages}
+                                    onChange={handleControlledInputChange} />
+                                </div>
+                            </fieldset>
                         </div>
-                    </fieldset>
+                    
+                
 
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="door_price">Door Price: </label>
-                            <input type="text" id="door_price" className="form-field"
-                            placeholder="Door Price" value={show.door_price}
-                            onChange={handleControlledInputChange} />
-                        </div>
-                    </fieldset>
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="billing">Billing: </label>
-                            <input type="text" id="billing" className="form-field"
-                            placeholder="Billing" value={show.billing}
-                            onChange={handleControlledInputChange} />
-                        </div>
-                    </fieldset>
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="deposit">Deposit: </label>
-                            <input type="text" id="deposit" className="form-field"
-                            placeholder="Deposit" value={show.deposit}
-                            onChange={handleControlledInputChange} />
-                        </div>
-                    </fieldset>
-                    <fieldset className="form">
-                        <div className="form-group">
-                            <label className="label" htmlFor="ages">Ages: </label>
-                            <input type="text" id="ages" className="form-field"
-                            placeholder="Ages" value={show.ages}
-                            onChange={handleControlledInputChange} />
-                        </div>
-                    </fieldset>
+               
+                    <div>
+                    </div>
+                <div>    
                     
                 </div>
-            </div>
             
+                <fieldset className="form">
+                    <div className="form-group">
+                        <label className="label" htmlFor="weather">Weather: </label>
+                        <input type="text" id="weather" className="form-field"
+                        placeholder="Weather" value={show.weather}
+                        onChange={handleControlledInputChange} />
+                    </div>
+                </fieldset>
+                <fieldset className="form">
+                    <div className="form-group">    
+                        <textarea cols="37" rows="10" 
+                        id="comments" className="form-field"
+                        value={show.comments} placeholder="Notes"
+                        onChange={handleControlledInputChange}/>
+                    </div>
+                </fieldset> 
             
             
         </form>

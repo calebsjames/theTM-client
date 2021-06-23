@@ -10,6 +10,7 @@ textarea {
 	font-family: "Comfortaa", Arial, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
+  resize: none;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -92,10 +93,106 @@ a:hover, a:active, a:focus {
   flex-direction: row;
 }
 
+.sb {
+  justify-content: space-between;
+}
+
+.se {
+  justify-content: space-evenly;
+}
+
+.sa {
+  justify-content: space-around;
+}
+
 .detailbox {
   margin: 10px;
 }
 
 .label{
+  margin: 5px 10px 0px !important; 
+}
+
+#containerLeft{
+  margin: 0px 10px;
+}
+
+.scrollPrevious {
+  position: relative;
+  height: 207px;
+  overflow-y: scroll;
+  padding: 0px 15px;
+  width: 400px;
+}
+
+.scrollFuture {
+  position: relative;
+  height: 600px;
+  overflow-y: scroll;
+  padding: 0px 15px;
+  width: 400px;
+}
+
+.scrollRelated {
+  position: relative;
+  height: 120px;
+  overflow-y: scroll;
+  padding: 0px 15px;
+  width: 400px;
+}
+
+.box{
+  border: 2px solid #305A72;
+  padding: 5px;
+	margin: 10px auto;
+	/* box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35); */
+	border-radius: 10px;
+}
+
+.promoters {
+  margin: 5px;
+}
+
+.venues {
+  margin: 5px;
+  width: 300px;
+  position: relative;
+  height: 550px;
+  overflow-y: scroll;
+  padding: 0px 15px;
+}
+
+.venue {
+  margin: 5px 0px; 
+  padding: 1px 0px;
+}
+
+.promoter {
+  margin: 5px 0px; 
+  padding: 1px 0px;
+}
+
+.search {
+  margin: 10px 20px;
+}
+
+.contactNote {
+  width: 179px;
   margin: 10px;
+}
+
+.relatedShow{
+  margin: 5px 15px 5px 0px;
+  width: max-content
+}
+
+#venueName {
+  width: 240px;
+}
+#venueLocation {
+  width: 200px;
+}
+
+.showDate {
+  width: 160px !important;
 }

@@ -6,5 +6,6 @@
             "database": "/Users/calebjames/workspace/tm-backend/db.sqlite3",
             "name": "bd"
         }
-    ]
+    ],
+    "python.pythonPath": "/Users/calebjames/.local/share/virtualenvs/tm-client-r7VrKNDV/bin/python"
 }

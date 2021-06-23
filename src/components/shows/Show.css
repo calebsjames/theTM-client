@@ -1,15 +1,15 @@
 #terms {
-    width: 400px
+    width: 310px
 }
 
 #checks {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px;
+    width: 400px;
 }
 
-#support {
-    width: 94%;
-}
 
 #artist_form {
     width: 85%;
@@ -20,3 +20,54 @@
     width: 110px;
 }
 
+.checkbox {
+    text-align: -webkit-center;
+}
+
+#door_price {
+    width: 50px;
+}
+
+#deposit {
+    width: 50px;
+}
+
+#ages {
+    width: 35px;
+}
+
+#billing {
+    width: 75px;
+}
+
+.showForm{
+    margin: 0px 40px;
+    /* width: 1300px; */
+}
+
+#weather {
+    width: 310px;
+}
+
+#routing {
+    width: 220px;
+}
+
+#miles_to_drive {
+    width: 30px;
+}
+
+#routing_notes {
+    width: 287px;
+    height: 65px;
+}
+
+#comments {
+    width: 310px;
+    height: 87px;
+}
+
+#support {
+    width: 780px !important;
+    /* margin-left: 10px !important; */
+}

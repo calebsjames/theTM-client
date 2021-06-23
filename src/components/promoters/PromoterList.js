@@ -20,7 +20,7 @@ export const PromoterList = () => {
        getPromoters()
      }, [])
     
-    const history = useHistory()
+    
 
   
     useEffect(() => {
@@ -42,7 +42,7 @@ export const PromoterList = () => {
             <div className="promoterNav">
             <PromoterSearch />
             </div>
-            <div className="promoters">
+            <div className="promoters ">
                 {
                   
                   filteredPromoters.map(promoterObject => {

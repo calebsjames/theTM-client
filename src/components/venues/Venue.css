@@ -1,28 +1,28 @@
 #city {
     flex: 50%;
-    width: 50%;
+    width: 150px;
 }
 
 #state {
     flex: 15%;
-    width: 15%;
+    width: 30px;
 }
 
 #zip {
     flex: 30%;
-    width: 30%;
+    width: 45px;
 }
 
-#name {
-    width: 400px;
+#venueName {
+    width: 390px;
 }
 
 #contact {
-    width: 400px
+    width: 390px
 }
 
-#address {
-    width: 400px
+#venueAddress {
+    width: 390px
 }
 
 #phone {
@@ -33,8 +33,12 @@
     width: 190px
 }
 
+.phone {
+    width: 170px !important
+}
+
 #website {
-    width: 400px
+    width: 390px
 }
 
 #capacity {
@@ -42,7 +46,7 @@
 }
 
 #merch_sales {
-    width: 100px
+    width: 80px
 }
 
 #merch_fee {
@@ -54,5 +58,7 @@
 }
 
 #email {
-    width: 400px
+    width: 390px
 }
+
+

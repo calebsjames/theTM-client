@@ -21,6 +21,9 @@ import { ScheduleListForm } from "./schedules/ScheduleListForm"
 import { ContactNoteForm } from "./contactNotes/ContactNotesForm"
 import { ContactNoteListForm } from "./contactNotes/ContactNotesListForm"
 import PromoterModal from "./promoters/PromoterModal"
+import {ShowCheckBoxes} from "./shows/ShowCheckBoxes"
+import { RelatedShowsList } from "./shows/RelatedShows"
+import { DropDownNav } from "./dropdown/Dropdown"
 
 
 
@@ -35,7 +38,7 @@ const eventHub = document.querySelector(".landing")
 
 
 export const Home = () => {
-    const { getShows, getShowById, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
+    const { getShows, shows, searchTerms, show, updateShow, addShow, setShow} = useContext(ShowContext)
     // const { getUsers, users } = useContext(UserContext)
     const { getVenues, venue, updateVenue } = useContext(VenueContext)
     const { getPromoters, promoters, promoter, updatePromoter } = useContext(PromoterContext)
@@ -62,120 +65,49 @@ export const Home = () => {
    
 
 
-    const handleNewShow = () => {
-        const newShow = {
-            
-            advanced: false,
-            ages: "",
-            artist: "",
-            billing: "",
-            bus_call: "00:00",
-            comments: "",
-            contracted: false,
-            contract_signed: false,
-            curfew: "00:00",
-            date: "1950-01-01",
-            date_on_artist_site: false,
-            date_on_calendar: false,
-            date_on_socials: false,
-            date_on_venue_site: false,
-            deposit: 0,
-            deposit_paid: false,
-            door_price: 0,
-            door_time: "00:00",
-            drive_time: "",
-            gross_income: 0,
-            guarantee: 0,
-            guest_list: "",
-            guest_list_sent: false,
-            load_in: "00:00",
-            miles_to_drive: 0,
-            public_private: "",
-            promo_materials_sent: false,
-            routing: "",
-            routing_notes: "",
-            runner: false,     
-            show_length: "",
-            show_time: "00:00",
-            sound_check: "00:00",
-            support: "",
-            status: "",
-            terms: "",
-            ticket_sales: 0,
-            weather: "",
-            hotel: null,
-            promoter: null,
-            venue: null
-        };
-         
-        addShow(newShow)
-        .then(showid => {
-            history.push(`/show/${showid}`)
-
-            // getShowById(showid)
-            // .then(s => {setShow(s)})
-        }
-        
-        )
-        .then(() => history.push(showId))
-        // .then(() => getShowById(showid))
-    }
 
     
-
-    
-
-    const handleClickSaveForm = (event) => {
-
-        event.preventDefault()
-        updateShow(show)
-        if (show.venue?.id) {   
-            updateVenue(venue)
-        } 
-
-        if (show.promoter?.id) {   
-            updatePromoter(promoter)
-        } 
-
-        if (show?.hotel?.id) {
-            updateHotel(hotel)
-        } 
-        
-    }
-
-
-    const handleLogout = (event) => {
-        localStorage.removeItem("tm_token")
-        history.push({ pathname: "/" })
-        
-    }
 
 
       return (
         <>  
             <div id="main">
-                <ShowFormHead />
                 <div className="flex">
-                    <div id="containerLeft">
+                    <ShowFormHead />
+                    <DropDownNav />
+                </div>
+                
+                <div className="flex">
+                    <div id="containerLeft" className="box">
                         <div id="detail_row" className="flex">
-                            <VenueForm />
-                            <ShowFormA />
+                            <div>
+                                <div className="flex">   
+                                    <VenueForm />
+                                    <ShowFormA />
+                                </div>
+                                <div>
+                                    <ShowFormB />
+                                </div>
+                        
+                            </div>
+                            <div>
                             <PromoterForm />
+                            <ShowCheckBoxes />
+                            </div>
                         </div>
-                        <ShowFormB />
                         <div className="flex">
                             <HotelForm />
                             <RoutingForm />
+                            <RelatedShowsList />
                         </div>
-                        <div className="flex">
-                            <div> 
+                        <div className="flex se">
+                            <div> <br></br>
                                 <ScheduleForm /> <br></br>
                                 <ScheduleListForm />
                             </div>
-                            <div> 
+                            <div> <br></br>
                                 <ContactNoteForm /> <br></br>
-                                <ContactNoteListForm
- />
+                                <ContactNoteListForm />
                             </div>
                         </div>
                     </div>
@@ -186,21 +118,7 @@ export const Home = () => {
                         <PromoterModal />
                     </div>
                 </div>
-                <button className="btn btn-primary"
-                // disabled={isLoading}
-                onClick={handleClickSaveForm}>
-                Save</button>
                 
-                
-                <button className="btn btn-primary"
-                // disabled={isLoading}
-                onClick={handleNewShow}>
-                New Show</button>
-
-                <button className="btn btn-primary"
-                // disabled={isLoading}
-                onClick={handleLogout}>
-                Logout</button>
             </div>
         </>
     )

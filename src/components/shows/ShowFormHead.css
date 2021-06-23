@@ -2,6 +2,7 @@
     height: 50px;
     min-width: 600px;
     margin: 7px;
+    font-size: x-large;
 }
 
 #artist_form {
@@ -27,3 +28,7 @@
 
 }
 
+#showFormHead{
+    margin: 0px 40px;
+    width: 1055px;
+}

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { UserContext } from "../auth/AuthProvider"
 import { ShowContext } from "../shows/ShowProvider"
 import { PreviousShows } from "./PreviousShows"
-
+// import PerfectScrollbar from 'perfect-scrollbar'
 
 
 export const FutureShowsList = () => {
@@ -15,9 +15,10 @@ export const FutureShowsList = () => {
         getShows()
   }, [])
 
-    
+
+    // const ps = new PerfectScrollbar('#scroll')
     const currentdate = new Date().toISOString().slice(0, 10)
-    const showsFiltered = shows.filter(show => show.date >= currentdate)
+    const showsFiltered = shows.filter(show => show.date >= currentdate) 
     
     const showsSorted = showsFiltered?.sort(
         
@@ -27,14 +28,16 @@ export const FutureShowsList = () => {
 
   return (
     <>         
-        <article className="previousShows">
+        <article className="futureShows">
             <h2>Future Shows</h2>
+            <div className="scrollFuture">
             {
                 showsSorted?.map(showObject => {
                     return <PreviousShows key={showObject.id} showInstance={showObject} 
                     />
                 })
             }
+            </div>
         </article>
     </>
 )

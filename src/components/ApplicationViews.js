@@ -1,7 +1,5 @@
 import React from "react"
 import { BrowserRouter as Router, Route } from "react-router-dom"
-import { UserProvider } from "./auth/AuthProvider"
-import { Register } from "./auth/Register"
 import { ContactNoteProvider } from "./contactNotes/ContactNoteProvider"
 import { Home } from "./Home"
 import { HotelProvider } from "./hotels/HotelProvider"

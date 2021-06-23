@@ -94,7 +94,7 @@ export const PromoterFormModal = () => {
                         <div className="form-group">
                             <label className="label" htmlFor="name">Promoter: </label>
                             <input type="text" id="name" className="form-field"
-                            autoFocus placeholder="Promoter" value={promoter?.name}
+                            placeholder="Promoter" value={promoter?.name}
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>

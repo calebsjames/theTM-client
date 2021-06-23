@@ -1,0 +1,25 @@
+#address {
+    width: 200px;
+    height: 65px
+}
+
+#confirmation {
+    width: 150px;
+    height: 65px
+}
+
+#name {
+    width: 200px;
+}
+
+#phone {
+    width: 150px;
+}
+
+.lc1 {
+    width: 200px !important;
+}
+
+.lc2 {
+    width: 150px !important;
+}

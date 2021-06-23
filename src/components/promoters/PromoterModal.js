@@ -30,11 +30,6 @@ export const PromoterModal = () => {
         addPromoter(promoter)
         .then(promoter => {
             
-            
-            
-
-            /* Set the property to the new value
-            using object bracket notation. */
             show.promoter = promoter
             
             // update state

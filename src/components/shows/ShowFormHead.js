@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { ShowContext } from "../shows/ShowProvider";
 import "./ShowFormHead.css"
 import "../App.css"
+import { DropDownNav } from "../dropdown/Dropdown";
 
 
 //export function to display form for new show
@@ -53,11 +54,15 @@ export const ShowFormHead = () => {
     }, [showId])
 
 
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
+
     //Return this HTML
     return (
         <>
         <article id="show_form_head">
-            <form className="showForm">
+            <form className="showForm" id="showFormHead">
                 <div className="flex row">
                     
                     
@@ -90,7 +95,8 @@ export const ShowFormHead = () => {
                             </div>
                         </fieldset>
                     </div>
-  
+                    
+            
                 </div>
             </form>
         </article>
