@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# The TM
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+The TM is an application designed to help tour managers keep track of relavent data to shows while reducing the need for repetative data entry. The user is able to easily navigate between shows and quickly update update information.
 
-In the project directory, you can run:
+---
+![Client](https://img.shields.io/badge/Client%20Side-HTML%2C%20CSS%2C%20React%2C%20React--Bootstrap-blue)
+![Server](https://img.shields.io/badge/Server%20Side-Python%2FDjango%2C%20Django--safedelete-blue)
 
-### `npm start`
+## Features
+* Can register users and present unique data
+* Complete CRUD functionality on shows, venues, promoters, schedule and contact notes
+* Add new shows and keep track of:
+    * Show details
+    * Checklist of things to do
+    * All related shows played at the venue
+* Adding a new venue saves it to the database and gives the user access to quickly add the details to another show 
+* Adding a new promoter saves it to the database and gives the user access to quickly add their details to another show 
+* Users can add schedule entries related to the show
+* Users can keep track of communications with the venue
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ERD and Wireframe
 
-### `npm test`
+![StockUp ERD](./images/tmERD.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[View in dbdiagram](https://dbdiagram.io/d/609eae23b29a09603d14e96d)
 
-### `npm run build`
+[View Wirefram in Figma](https://www.figma.com/file/A41DJnuQO4mRJpJatT67Bm/Untitled?node-id=7%3A549)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this repository to your machine
+3. [Run the server](https://github.com/calebsjames/theTM)
+3. Run `npm start` from the root directory to launch app
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Future features to include:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Daysheets
+    * Users will be able to enter a range of dates and print a PDF form for daysheets
+* Settlement
+    * Users will be able to enter income and expenses
+    * Users will be able to print a PDF summany of the settlement
+* Merchandise
+    * Users will have full CRUD functionality on merchandise information
+    * Users will be able to track sales and income
+* Users
+    * Admin
+        * Invite general users to view relevant data related to upcoming shows
+    * General 
+        * Users will be able to view daysheet information online
