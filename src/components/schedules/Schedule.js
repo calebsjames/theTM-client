@@ -10,7 +10,7 @@ export const Schedule = ({scheduleInstance}) => {
     const { updateSchedule, getSchedules, schedule, setSchedule, deleteSchedule } = useContext(ScheduleContext)
    
 
-
+    setSchedule(schedule)
     //when something changes, save it with setSchedule
     const handleControlledInputChange = (event) => {
         //make a new copy of schedule
@@ -40,7 +40,7 @@ export const Schedule = ({scheduleInstance}) => {
 
                 <fieldset className="form">
                     <div className="form-group">
-                        <input type="time" id="time" className="form-field"
+                        <input type="time" id=" " className="form-field"
                         placeholder="Time" value={scheduleInstance?.time}
                         onChange={handleControlledInputChange}/>
                     </div>

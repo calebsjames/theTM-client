@@ -92,7 +92,8 @@ export const PromoterForm = () => {
                         </div>
                     </fieldset>
                     <fieldset className="form">
-                        <div className="form-group">    
+                        <div className="form-group">
+                            <label className="label" htmlFor="address">Address: </label>
                             <textarea cols="50" rows="30" 
                             id="address" className="form-field"
                             value={promoter?.address} placeholder="Address"

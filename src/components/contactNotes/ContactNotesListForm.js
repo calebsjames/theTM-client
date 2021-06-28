@@ -6,32 +6,20 @@ import { ShowContext } from "../shows/ShowProvider";
 import { ContactNote } from "./ContactNotes";
 
 
-
 //export function to display form for new contactNote
 export const ContactNoteListForm = () => {
     
-    const { contactNotes, addContactNote, getContactNoteById, editContactNote, getContactNotes, contactNote, setContactNote } = useContext(ContactNoteContext)
-    const { addShow, getShowById, editShow, getShows, show, setShow } = useContext(ShowContext)
+    const { contactNotes, getContactNotes } = useContext(ContactNoteContext)
     const { showId } = useParams()
-    // const [ isLoading, setIsLoading ] = useState(true);
-    const history = useHistory();
     
 
-
-
-
-
-
-
-
-
     useEffect(() => {
-        
         getContactNotes()
-
     }, [])
 
+
     let filteredContactNotes = contactNotes.filter(s => parseInt(s.show.id) === parseInt(showId))
+    
     
     //Return this HTML
     return (

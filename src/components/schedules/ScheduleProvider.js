@@ -19,7 +19,7 @@ export const ScheduleProvider = (props) => {
 
 
     const getSchedules = () => {
-        return fetch("https://the-tm-api.herokuapp.com/schedules", {
+        return fetch("http://localhost:8000/schedules", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -30,7 +30,7 @@ export const ScheduleProvider = (props) => {
 
     const addSchedule = scheduleObj => {
         
-        return fetch("https://the-tm-api.herokuapp.com/schedules", {
+        return fetch("http://localhost:8000/schedules", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export const ScheduleProvider = (props) => {
 
     //function to get schedule by ID
     const getScheduleById = (id) => {
-        return fetch(`https://the-tm-api.herokuapp.com/schedules/${id}`, {
+        return fetch(`http://localhost:8000/schedules/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -53,7 +53,7 @@ export const ScheduleProvider = (props) => {
 
     //function to delete a schedule
     const deleteSchedule = scheduleId => {
-        return fetch(`https://the-tm-api.herokuapp.com/schedules/${scheduleId}`, {
+        return fetch(`http://localhost:8000/schedules/${scheduleId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
@@ -63,7 +63,7 @@ export const ScheduleProvider = (props) => {
     }
 
     const updateSchedule = schedule => {
-        return fetch(`https://the-tm-api.herokuapp.com/schedules/${schedule.id}`, {
+        return fetch(`http://localhost:8000/schedules/${schedule.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

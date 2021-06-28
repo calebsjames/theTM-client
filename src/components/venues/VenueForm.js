@@ -1,24 +1,21 @@
 //import statements
-import React, { useContext, useEffect, useState } from "react"
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useContext, useEffect } from "react"
+import { useParams } from 'react-router-dom';
 import { ShowContext } from "../shows/ShowProvider";
 import { VenueContext } from "../venues/VenueProvider";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import "./Venue.css"
-import {VenueModal} from "./VenueModal";
 
 
 //export function to display form for new venue
 export const VenueForm = () => {
     
-    const { getShowById, editShow, getShows, show } = useContext(ShowContext)
+    const { getShowById, show } = useContext(ShowContext)
     const { showId } = useParams()
-    const [ isLoading, setIsLoading ] = useState(true);
-    const history = useHistory();
     
     
     
-    const { addVenue, getVenueById, editVenue, deleteVenue, venue, setVenue, modal, setModal } = useContext(VenueContext)
+    
+    const { venue, setVenue, modal, setModal } = useContext(VenueContext)
     // export const VenueEdit = () => {
     //         editVenue(venue)
     // }
@@ -54,36 +51,34 @@ export const VenueForm = () => {
 
 
     useEffect(() => {
-
-            //get that show
-            getShowById(showId)
-            //then setShow to that found Show
-            .then(show => {
-                if(show?.venue) {
-                    
-                    setVenue(show?.venue)
-                    
-                } else {    
-                    
-                    setVenue({
-                        address: "",
-                        capacity: 0,
-                        cell: "",
-                        city: "",
-                        contact: "",
-                        email: "",
-                        hall_fee: 0,
-                        phone: "",
-                        website: "",
-                        merch_sales: "",
-                        merch_fee: "",     
-                        name: "",
-                        state: "",
-                        zip: ""
-                    })
-                    setIsLoading(false)
-                }
-            })
+        getShowById(showId)
+        //then setShow to that found Show
+        .then(show => {
+            if(show?.venue) {
+                
+                setVenue(show?.venue)
+                
+            } else {    
+                
+                setVenue({
+                    address: "",
+                    capacity: 0,
+                    cell: "",
+                    city: "",
+                    contact: "",
+                    email: "",
+                    hall_fee: 0,
+                    phone: "",
+                    website: "",
+                    merch_sales: "",
+                    merch_fee: "",     
+                    name: "",
+                    state: "",
+                    zip: ""
+                })
+                
+            }
+        })
         
     }, [showId])
 
@@ -120,8 +115,9 @@ export const VenueForm = () => {
                     <fieldset className="form">
                         <div className="form-group">
                             <label className="label" htmlFor="address">Address: </label>
-                            <input type="text" id="address" className="form-field"
-                            placeholder="Address" value={venue?.address}
+                            <textarea cols="50" rows="30" 
+                            id="address" className="form-field"
+                            value={venue?.address} placeholder="Address"
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>

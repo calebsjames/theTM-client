@@ -51,7 +51,6 @@ export const ContactNoteForm = () => {
         <form className="contactNoteForm">
             <h2 className="formTitle">Contact</h2>
        
-
                 <div className="flex">
                     <fieldset className="form">
                         <div className="form-group">
@@ -79,10 +78,11 @@ export const ContactNoteForm = () => {
                             onChange={handleControlledInputChange}/>
                         </div>
                     </fieldset>
+
                     <button className="btn btn-primary"
-                    // disabled={isLoading}
                     onClick={handleContactEntry}>
                     +</button>
+
                 </div>
         </form>
         </article>
