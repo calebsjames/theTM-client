@@ -18,7 +18,7 @@ export const HotelProvider = (props) => {
     });
 
     const getHotels = () => {
-        return fetch("http://localhost:8000/hotels", {
+        return fetch("https://the-tm-api.herokuapp.com/hotels", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -28,7 +28,7 @@ export const HotelProvider = (props) => {
     }
 
     const addHotel = hotelObj => {
-        return fetch("http://localhost:8000/hotels", {
+        return fetch("https://the-tm-api.herokuapp.com/hotels", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const HotelProvider = (props) => {
 
     //function to get hotel by ID
     const getHotelById = (id) => {
-        return fetch(`http://localhost:8000/hotels/${id}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/hotels/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -51,7 +51,7 @@ export const HotelProvider = (props) => {
 
     //function to delete a hotel
     const deleteHotel = hotelId => {
-        return fetch(`http://localhost:8000/hotels/${hotelId}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/hotels/${hotelId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
@@ -62,7 +62,7 @@ export const HotelProvider = (props) => {
 
     const updateHotel = hotel => {
         
-        return fetch(`http://localhost:8000/hotels/${hotel.id}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/hotels/${hotel.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

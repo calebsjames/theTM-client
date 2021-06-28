@@ -18,7 +18,7 @@ export const ContactNoteProvider = (props) => {
     })
 
     const getContactNotes = () => {
-        return fetch("http://localhost:8000/contactNotes", {
+        return fetch("https://the-tm-api.herokuapp.com/contactNotes", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -28,7 +28,7 @@ export const ContactNoteProvider = (props) => {
     }
 
     const addContactNote = contactNoteObj => {
-        return fetch("http://localhost:8000/contactNotes", {
+        return fetch("https://the-tm-api.herokuapp.com/contactNotes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const ContactNoteProvider = (props) => {
 
     //function to get contactNote by ID
     const getContactNoteById = (id) => {
-        return fetch(`http://localhost:8000/contactNotes/${id}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/contactNotes/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -51,7 +51,7 @@ export const ContactNoteProvider = (props) => {
 
     //function to delete a contactNote
     const deleteContactNote = contactNoteId => {
-        return fetch(`http://localhost:8000/contactNotes/${contactNoteId}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/contactNotes/${contactNoteId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
@@ -61,7 +61,7 @@ export const ContactNoteProvider = (props) => {
     }
 
     const updateContactNote = contactNote => {
-        return fetch(`http://localhost:8000/contactNotes/${contactNote.id}`, {
+        return fetch(`https://the-tm-api.herokuapp.com/contactNotes/${contactNote.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
