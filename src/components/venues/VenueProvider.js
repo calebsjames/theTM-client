@@ -27,7 +27,7 @@ export const VenueProvider = (props) => {
     });
 
     const getVenues = () => {
-        return fetch("https://the-tm-api.herokuapp.com/venues", {
+        return fetch("http://localhost:8000/venues", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -37,7 +37,7 @@ export const VenueProvider = (props) => {
     }
 
     const addVenue = venueObj => {
-        return fetch("https://the-tm-api.herokuapp.com/venues", {
+        return fetch("http://localhost:8000/venues", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export const VenueProvider = (props) => {
 
     //function to get venue by ID
     const getVenueById = (id) => {
-        return fetch(`https://the-tm-api.herokuapp.com/venues/${id}`, {
+        return fetch(`http://localhost:8000/venues/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -63,7 +63,7 @@ export const VenueProvider = (props) => {
 
     //function to delete a venue
     const deleteVenue = venueId => {
-        return fetch(`https://the-tm-api.herokuapp.com/venues/${venueId}`, {
+        return fetch(`http://localhost:8000/venues/${venueId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
@@ -73,7 +73,7 @@ export const VenueProvider = (props) => {
     }
 
     const updateVenue = venue => {
-        return fetch(`https://the-tm-api.herokuapp.com/venues/${venue.id}`, {
+        return fetch(`http://localhost:8000/venues/${venue.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

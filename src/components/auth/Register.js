@@ -82,7 +82,7 @@ export const Register = (props) => {
                 "password": password.current.value
             }
 
-            return fetch("https://the-tm-api.herokuapp.com/register", {
+            return fetch("http://localhost:8000/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

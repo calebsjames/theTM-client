@@ -25,7 +25,7 @@ export const PromoterProvider = (props) => {
     });
 
     const getPromoters = () => {
-        return fetch("https://the-tm-api.herokuapp.com/promoters", {
+        return fetch("http://localhost:8000/promoters", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -35,7 +35,7 @@ export const PromoterProvider = (props) => {
     }
 
     const addPromoter = promoterObj => {
-        return fetch("https://the-tm-api.herokuapp.com/promoters", {
+        return fetch("http://localhost:8000/promoters", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const PromoterProvider = (props) => {
 
     //function to get promoter by ID
     const getPromoterById = (id) => {
-        return fetch(`https://the-tm-api.herokuapp.com/promoters/${id}`, {
+        return fetch(`http://localhost:8000/promoters/${id}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
             }
@@ -61,7 +61,7 @@ export const PromoterProvider = (props) => {
 
     //function to delete a promoter
     const deletePromoter = promoterId => {
-        return fetch(`https://the-tm-api.herokuapp.com/promoters/${promoterId}`, {
+        return fetch(`http://localhost:8000/promoters/${promoterId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("tm_token")}`
@@ -71,7 +71,7 @@ export const PromoterProvider = (props) => {
     }
 
     const updatePromoter = promoter => {
-        return fetch(`https://the-tm-api.herokuapp.com/promoters/${promoter.id}`, {
+        return fetch(`http://localhost:8000/promoters/${promoter.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

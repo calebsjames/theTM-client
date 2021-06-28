@@ -27,9 +27,22 @@ export const ApplicationViews = () => {
                         </ScheduleProvider>
                     </PromoterProvider>
                 </VenueProvider>
-            </ShowProvider>
-        
-            
+            </ShowProvider>  
+        </Route>      
+        <Route exact path="/">
+            <ShowProvider>
+                <VenueProvider>
+                    <PromoterProvider>
+                        <ScheduleProvider>
+                            <HotelProvider>
+                                <ContactNoteProvider>
+                                    <Home />
+                                </ContactNoteProvider>
+                            </HotelProvider>
+                        </ScheduleProvider>
+                    </PromoterProvider>
+                </VenueProvider>
+            </ShowProvider>  
         </Route>      
     </>
 }

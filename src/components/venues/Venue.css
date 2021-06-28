@@ -14,7 +14,7 @@
 }
 
 #venueName {
-    width: 390px;
+    width: 390px !important;
 }
 
 #contact {
